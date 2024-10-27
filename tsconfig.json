@@ -21,6 +21,6 @@
 			"@components/*": ["./src/app/components/*"],
 		}
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/GradientBackground", "src/app/components/GlitchText"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/GradientBackground", "src/app/components/LandingHeroText"],
   "exclude": ["node_modules"]
 }
