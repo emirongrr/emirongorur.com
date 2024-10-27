@@ -17,10 +17,10 @@
         "name": "next"
       }
     ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+		"paths": {
+			"@components/*": ["./src/app/components/*"],
+		}
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/GradientBackground", "src/app/components/GlitchText"],
   "exclude": ["node_modules"]
 }
