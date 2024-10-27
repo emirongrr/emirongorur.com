@@ -8,10 +8,10 @@ const LandingHeroText: React.FC = () => {
       {/* Title Section */}
       <div className="mb-6 lg:max-w-2xl max-w-full">
         <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl leading-tight lg:min-w-[700px]">
-          Software engineer, technical writer & open-source maintainer
+        I&apos;m Software engineer, technical writer & open-source maintainer
         </h1>
         <p className="text-base text-zinc-300 leading-relaxed mt-4">
-          I'm Emir Öngörür, an experienced software developer passionate about learning and building open-source software that is beneficial to developers and the world at large.
+        I&apos;m Emir Öngörür, an experienced software developer passionate about learning and building open-source software that is beneficial to developers and the world at large.
         </p>
       </div>
 

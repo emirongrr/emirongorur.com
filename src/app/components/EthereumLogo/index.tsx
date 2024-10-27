@@ -1,5 +1,3 @@
-// src/components/EthereumLogo.tsx
-
 'use client';
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
@@ -12,13 +10,15 @@ const EthereumLogo: React.FC = () => {
   useEffect(() => {
     if (!mountRef.current) return;
 
+    const currentMountRef = mountRef.current; 
+
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, mountRef.current.clientWidth / mountRef.current.clientHeight, 1, 1000);
+    const camera = new THREE.PerspectiveCamera(60, currentMountRef.clientWidth / currentMountRef.clientHeight, 1, 1000);
     camera.position.set(0, 0, 10);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
-    mountRef.current.appendChild(renderer.domElement);
+    renderer.setSize(currentMountRef.clientWidth, currentMountRef.clientHeight);
+    currentMountRef.appendChild(renderer.domElement);
 
     const light = new THREE.DirectionalLight(0xffffff, 1);
     light.position.setScalar(1);
@@ -77,9 +77,9 @@ const EthereumLogo: React.FC = () => {
     animate();
 
     const handleResize = () => {
-      if (mountRef.current) {
-        const width = mountRef.current.clientWidth;
-        const height = mountRef.current.clientHeight;
+      if (currentMountRef) {
+        const width = currentMountRef.clientWidth;
+        const height = currentMountRef.clientHeight;
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
         renderer.setSize(width, height);
@@ -90,9 +90,9 @@ const EthereumLogo: React.FC = () => {
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      mountRef.current?.removeChild(renderer.domElement);
+      currentMountRef.removeChild(renderer.domElement); 
     };
-  }, []);
+  }, [clock]); 
 
   return <div ref={mountRef} style={{ width: "100%", height: "100%" }} />;
 };
