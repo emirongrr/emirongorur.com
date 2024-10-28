@@ -12,7 +12,7 @@ const Footer = () => {
         <Link href="https://linkedin.com/in/emirongrr" target="_blank" rel="noopener noreferrer">
           {/* <img src="/linkedin.svg" alt="LinkedIn" className="h-8 w-8 hover:opacity-80 transition-opacity" /> */}
         </Link>
-        <Link href="https://twitter.com/emirongrr" target="_blank" rel="noopener noreferrer">
+        <Link href="https://x.com/emirongrr" target="_blank" rel="noopener noreferrer">
           {/* <img src="/twitter.svg" alt="Twitter" className="h-8 w-8 hover:opacity-80 transition-opacity" /> */}
         </Link>
         <Link href="https://farcaster.xyz/emirongrr" target="_blank" rel="noopener noreferrer">

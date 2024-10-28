@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 
 import { Providers } from "./provider";
 import { gitlabmono, incognito } from "./assets/fonts/font";
+import Navbar from "@components/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
       >
         <Providers>
+        <Navbar/>
         {children}
         </Providers>
 

@@ -1,33 +1,57 @@
 // src/app/components/Navbar/index.tsx
 
 import Link from 'next/link';
+import Theme from './theme';
+import MobileMenu from './mobilemenu';
+
+
+const data = [
+  {
+    title: "Home",
+    href: "/home",
+  },
+  {
+    title: "About",
+    href: "/about",
+  },
+  {
+    title: "Projects",
+    href: "/projects",
+  },
+  {
+    title: "Blog",
+    href: "/blog",
+  },
+];
 
 const Navbar = () => {
   return (
-    <nav className=" w-full h-[80px] bg-transparent flex justify-between items-center px-6 shadow-md z-50">
-      <ul className="hidden md:flex space-x-4 justify-center flex-grow">
-        <li>
-          <Link href="/" className="text-white hover:text-gray-300">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link href="/about" className="text-white hover:text-gray-300">
-            About
-          </Link>
-        </li>
-        <li>
-          <Link href="/projects" className="text-white hover:text-gray-300">
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link href="/contact" className="text-white hover:text-gray-300">
-            Blog
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <header className="text-sm py-6 md:px-16 px-6 border-b dark:border-zinc-800 border-zinc-200 z-30">
+    <div className="max-w-6xl mx-auto flex items-center justify-between">
+      <Link href="/">
+      </Link>
+
+      <nav className="md:block hidden">
+        <ul className="flex items-center gap-x-8">
+          {data.map((link, id) => (
+            <li key={id}>
+              <Link
+                href={link.href}
+                className="font-incognito dark:text-white text-zinc-600 dark:hover:text-primary-color hover:text-zinc-900 duration-300 text-base"
+              >
+                {link.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div className="flex items-center gap-x-4">
+        <Theme />
+        <MobileMenu />
+      </div>
+    </div>
+  </header>
   );
 };
 

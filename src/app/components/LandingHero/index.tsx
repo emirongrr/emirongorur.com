@@ -1,6 +1,7 @@
 // src/components/GlitchHero.tsx
 import EthereumLogo from '@components/EthereumLogo';
 import React from 'react';
+import FooterSocials from '@components/FooterSocial';
 
 const LandingHeroText: React.FC = () => {
   return (
@@ -18,6 +19,11 @@ const LandingHeroText: React.FC = () => {
       {/* Logo Section */}
       <div className="w-full h-64 flex items-center justify-center">
         <EthereumLogo />
+      </div>
+
+      {/* Link Section */}
+      <div>
+      <FooterSocials />
       </div>
     </div>
   );

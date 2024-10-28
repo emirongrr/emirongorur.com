@@ -2,14 +2,14 @@
 
 import GradientBackground from '@components/GradientBackground';
 import "./globals.css";
-import LandingHeroText from '@components/LandingHeroText';
+import LandingHeroText from '@components/LandingHero';
 
 
 const Home = () => {
   return (
-    <div className=' border-white flex justify-center items-start h-screen '> 
+    <div className=' border-white flex justify-center items-center h-screen '> 
         <div className=" relative z-10  w-full">
-          <div className="w-full  overflow-hidden">
+          <div className="w-full h-screen  overflow-hidden">
                 <GradientBackground>
                   <LandingHeroText/>
                 </GradientBackground>
