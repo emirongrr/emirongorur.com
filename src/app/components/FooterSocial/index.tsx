@@ -50,7 +50,7 @@ const FooterSocials: React.FC = () => {
         <a
           id="s_farcaster"
           target="_blank"
-          href="https://farcaster.xyz/emirongrr"
+          href="https://warpcast.com/emirongrr"
           title="Farcaster"
           className="mx-4 my-2 text-gray-200 transition-transform transform hover:scale-125 hover:text-purple-600"
           rel="noopener noreferrer"
