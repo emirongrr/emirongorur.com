@@ -22,15 +22,6 @@ const Home = () => {
 
 
     </div>
-
-    <div className="border border-red-600 flex justify-center items-center w-full h-[100vh] overflow-hidden">
-b
-    </div>
-
-    <div className="border border-cyan-500 flex justify-center items-center w-full h-[100vh] overflow-hidden">
-c
-</div>
-
   </>
 
   );
