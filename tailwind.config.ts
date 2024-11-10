@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "primary-bg": "#212121",
+        "secondary-bg": "rgba(250, 250, 250, 0.4)",
       },
       animation: {
         effect: 'effect 60s ease infinite',
