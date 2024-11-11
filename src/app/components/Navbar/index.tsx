@@ -7,15 +7,15 @@ import MobileMenu from "./mobilemenu";
 const data = [
   {
     title: "Home",
-    href: "/home",
+    href: "#",
   },
   {
     title: "About",
-    href: "/about",
+    href: "#about",
   },
   {
     title: "Projects",
-    href: "/projects",
+    href: "#projects",
   },
   {
     title: "Blog",
@@ -25,9 +25,9 @@ const data = [
 
 const Navbar = () => {
   return (
-    <header className="text-sm py-6 md:px-16 px-6 border-b dark:bg-black dark:border-zinc-800 border-zinc-200 z-30">
+    <header className=" sticky top-0 text-sm py-6 md:px-16 px-6 border-b dark:bg-black dark:border-zinc-800 border-zinc-200 z-30">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <Link href="/"></Link>
+        <Link href="#home"></Link>
 
         <nav className="md:block hidden">
           <ul className="flex items-center gap-x-8">

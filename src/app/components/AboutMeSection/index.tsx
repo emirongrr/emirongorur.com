@@ -20,79 +20,84 @@ export const metadata: Metadata = {
 
 const AboutMeSection = () => {
   return (
-    <main className="w-full h-full lg:max-w-7xl  max-w-3xl overflow-hidden ">
-      <div className="h-[70%]">
-        <section className="flex flex-row h-full">
-          {/* text */}
-          <div className="flex flex-col  w-[60%] p-6">
-            <h1 className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight basis-1/4 p-6">
-              I&apos;m Emir Öngörür. I live in Türkiye, where I build the
-              future.
-            </h1>
-            <p className="p-6 h-full">
-              I am a self-driven, career-oriented software developer
-              specializing in front-end development and open-source, currently
-              pursuing a bachelors degree in computer science. My expertise lies
-              in building interactive web applications on the client side.
-              Primarily working with technologies like JavaScript, Next.js,
-              TypeScript and Python. I strongly believe in continuous learning
-              and improving myself, so I try my best to learn in any situation
-              possible, unfavorable or not.
-            </p>
-          </div>
+    <section
+      id="about"
+      className=" bg-[#000] flex justify-center items-center w-full h-[100vh] overflow-hidden"
+    >
+      <main className="w-full h-full lg:max-w-7xl  max-w-3xl overflow-hidden mt-24">
+        <div className="h-[70%]">
+          <section className="flex flex-row h-full">
+            {/* text */}
+            <div className="flex flex-col  w-[60%] p-6">
+              <h1 className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight basis-1/4 p-6">
+                I&apos;m Emir Öngörür. I live in Türkiye, where I build the
+                future.
+              </h1>
+              <p className="p-6 h-full">
+                I am a self-driven, career-oriented software developer
+                specializing in front-end development and open-source, currently
+                pursuing a bachelors degree in computer science. My expertise
+                lies in building interactive web applications on the client
+                side. Primarily working with technologies like JavaScript,
+                Next.js, TypeScript and Python. I strongly believe in continuous
+                learning and improving myself, so I try my best to learn in any
+                situation possible, unfavorable or not.
+              </p>
+            </div>
 
-          {/* photo */}
-          <aside className="flex flex-col  lg:justify-self-center justify-self-start  p-6 w-[40%]">
-            <div className=" sticky top-10 p-4">
-              <Image
-                className="rounded-2xl mb-4 object-cover max-h-[500px] min-h-96 bg-top"
-                src={"/assets/80769968.png"}
-                width={500}
-                height={500}
-                quality={100}
-                alt={"profile image"}
-                placeholder="blur"
-                blurDataURL={"data.profileImage.lqip"}
-                priority
-              />
+            {/* photo */}
+            <aside className="flex flex-col  lg:justify-self-center justify-self-start  p-6 w-[40%]">
+              <div className=" sticky top-10 p-4">
+                <Image
+                  className="rounded-2xl mb-4 object-cover max-h-[500px] min-h-96 bg-top"
+                  src={"/assets/80769968.png"}
+                  width={500}
+                  height={500}
+                  quality={100}
+                  alt={"profile image"}
+                  placeholder="blur"
+                  blurDataURL={"data.profileImage.lqip"}
+                  priority
+                />
 
-              <div className="flex flex-col text-center gap-y-4">
-                <div className="flex items-center gap-x-3">
-                  <RefLink
-                    href=""
-                    className="flex items-center justify-center text-center gap-x-2 basis-[90%] dark:bg-[#080808] bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-2 text-lg font-incognito font-semibold"
-                  >
-                    View Résumé <BiLinkExternal className="text-base" />
-                  </RefLink>
+                <div className="flex flex-col text-center gap-y-4">
+                  <div className="flex items-center gap-x-3">
+                    <RefLink
+                      href=""
+                      className="flex items-center justify-center text-center gap-x-2 basis-[90%] dark:bg-[#080808] bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-2 text-lg font-incognito font-semibold"
+                    >
+                      View Résumé <BiLinkExternal className="text-base" />
+                    </RefLink>
+                    <a
+                      href={`${"data.resumeURL"}?dl=${"data.fullName"}-resume`}
+                      className="flex items-center justify-center text-center dark:text-primary-color text-secondary-color hover:underline basis-[10%] dark:bg-[#080808] bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-3 text-lg"
+                      title="Download Resume"
+                    >
+                      <BiSolidDownload
+                        className="text-lg"
+                        aria-label="Download Resume"
+                      />
+                    </a>
+                  </div>
                   <a
-                    href={`${"data.resumeURL"}?dl=${"data.fullName"}-resume`}
-                    className="flex items-center justify-center text-center dark:text-primary-color text-secondary-color hover:underline basis-[10%] dark:bg-[#080808] bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-3 text-lg"
-                    title="Download Resume"
+                    href={`mailto:info@emirongorur.com`}
+                    className="flex items-center gap-x-2 hover:text-primary-color"
                   >
-                    <BiSolidDownload
-                      className="text-lg"
-                      aria-label="Download Resume"
-                    />
+                    <BiEnvelope className="text-lg" />
+                    {"info@emirongorur.com"}
                   </a>
                 </div>
-                <a
-                  href={`mailto:info@emirongorur.com`}
-                  className="flex items-center gap-x-2 hover:text-primary-color"
-                >
-                  <BiEnvelope className="text-lg" />
-                  {"info@emirongorur.com"}
-                </a>
               </div>
-            </div>
-          </aside>
-        </section>
-      </div>
+            </aside>
+          </section>
+        </div>
 
-      {/* skills */}
-      <div className="w-[100%] h-[30%]">
-        <SkillsSection />
-      </div>
-    </main>
+        {/* skills */}
+        <div className="w-[100%] h-[30%]">
+          <SkillsSection />
+        </div>
+      </main>
+    </section>
   );
 };
 

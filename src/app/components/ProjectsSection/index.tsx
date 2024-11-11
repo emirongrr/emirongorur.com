@@ -95,41 +95,61 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <div>
-      {projects.length > 0 ? (
-        <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12">
-          {projects.map((project) => (
-            <Link
-              href={`/projects/${project.slug}`}
-              key={project._id}
-              className="flex items-center gap-x-4 dark:bg-[#080808] transition-all bg-zinc-50  border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 p-4 rounded-lg"
-            >
-              {project.logo ? (
-                <Image
-                  src={""}
-                  width={60}
-                  height={60}
-                  alt={project.name}
-                  className="dark:bg-zinc-800 bg-zinc-100 rounded-md p-2"
-                />
-              ) : (
-                <div className="dark:bg-primary-bg bg-zinc-50 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 p-2 rounded-lg text-3xl">
-                  🪴
-                </div>
-              )}
-              <div>
-                <h2 className="text-lg tracking-wide mb-1">{project.name}</h2>
-                <div className="text-sm dark:text-zinc-400 text-zinc-600">
-                  {project.tagline}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </section>
-      ) : (
-        <div>Empty state</div>
-      )}
-    </div>
+    <section id="projects">
+      <div className="dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+        <div className=" mx-auto lg:max-w-7xl flex  items-start justify-start  h-[100vh] overflow-hidden">
+          <div className=" flex flex-col gap-6 mt-24">
+            <h1 className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl w-full lg:leading-[3.7rem]">
+              Projects & Open-Source contributions
+            </h1>
+            <p className="max-w-5xl text-base dark:text-zinc-300 text-zinc-600 leading-relaxed">
+              I&apos;ve tackled a range of projects over the years, but these
+              are the ones that truly stand out. They reflect my skills in Rust,
+              my commitment to open-source contributions, and my deep interest
+              in the Ethereum ecosystem. I&apos;d love for you to contribute any
+              ideas for improvements, especially if you share a passion for
+              Ethereum development.
+            </p>
+
+            {projects.length > 0 ? (
+              <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12">
+                {projects.map((project) => (
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    key={project._id}
+                    className="flex items-center gap-x-4 dark:bg-[#080808] transition-all bg-zinc-50  border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 p-4 rounded-lg"
+                  >
+                    {project.logo ? (
+                      <Image
+                        src={""}
+                        width={60}
+                        height={60}
+                        alt={project.name}
+                        className="dark:bg-zinc-800 bg-zinc-100 rounded-md p-2"
+                      />
+                    ) : (
+                      <div className="dark:bg-primary-bg bg-zinc-50 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 p-2 rounded-lg text-3xl">
+                        🪴
+                      </div>
+                    )}
+                    <div>
+                      <h2 className="text-lg tracking-wide mb-1">
+                        {project.name}
+                      </h2>
+                      <div className="text-sm dark:text-zinc-400 text-zinc-600">
+                        {project.tagline}
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </section>
+            ) : (
+              <div>Empty state</div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
