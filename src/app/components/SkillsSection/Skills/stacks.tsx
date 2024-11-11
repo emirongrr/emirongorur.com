@@ -1,4 +1,4 @@
-import { BsFillBootstrapFill, BsRobot } from "react-icons/bs";
+import { BsFillBootstrapFill } from "react-icons/bs";
 import {
   SiCss3,
   SiExpress,

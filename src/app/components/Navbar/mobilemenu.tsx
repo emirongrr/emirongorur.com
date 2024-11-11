@@ -15,23 +15,24 @@ export default function MobileMenu() {
   const data = [
     {
       title: "Home",
-      href: "/",
+      href: "#home",
       icon: HiHome,
     },
     {
       title: "About",
-      href: "/about",
+      href: "#about",
       icon: HiUser,
     },
     {
       title: "Projects",
-      href: "/projects",
+      href: "#projects",
       icon: HiBeaker,
     },
     {
       title: "Blog",
-      href: "/blog",
+      href: "https://blog.emirongorur.com",
       icon: HiBookmarkAlt,
+      external: true,
     },
   ];
 
@@ -74,19 +75,32 @@ export default function MobileMenu() {
           </button>
         </div>
         <nav className="flex flex-col mt-6">
-          {data.map((link) => (
-            <Link
-              key={link.title}
-              href={link.href}
-              className="flex items-center gap-x-2 font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light p-6 group"
-              onClick={onToggleNav}
-            >
-              <link.icon
-                className="text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300"
-                aria-hidden="true"
-              />
-              {link.title}
-            </Link>
+          {data.map((link, id) => (
+            <li key={id}>
+              {link.external ? (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-incognito dark:text-white text-black dark:hover:text-zinc-600 hover:text-zinc-900 duration-300 text-base"
+                >
+                  {link.title}
+                </a>
+              ) : (
+                <Link
+                  key={link.title}
+                  href={link.href}
+                  className="flex items-center gap-x-2 font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light p-6 group"
+                  onClick={onToggleNav}
+                >
+                  <link.icon
+                    className="text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300"
+                    aria-hidden="true"
+                  />
+                  {link.title}
+                </Link>
+              )}
+            </li>
           ))}
         </nav>
       </div>

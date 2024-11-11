@@ -3,8 +3,8 @@ import LandingHeroText from "@components/LandingHero";
 
 const LandingSection = () => {
   return (
-    <main className="flex justify-center items-center w-full h-[calc(100vh-89px)] overflow-hidden">
-      <section id="home" className="flex w-full h-full flex-col">
+    <main className="flex justify-center items-center w-full min-h-full md:h-[calc(100vh-89px)] overflow-hidden">
+      <section className="flex w-full h-full flex-col">
         <div className="h-full">
           <GradientBackground>
             <LandingHeroText />

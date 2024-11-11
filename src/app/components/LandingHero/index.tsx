@@ -5,7 +5,7 @@ import FooterSocials from "@components/FooterSocial";
 
 const LandingHeroText: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center p-4 lg:p-8">
+    <div className="flex flex-col items-center justify-center text-center w-full p-4 lg:p-8">
       {/* Title Section */}
       <div className="mb-6 lg:max-w-2xl max-w-full">
         <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl leading-tight lg:min-w-[700px]">

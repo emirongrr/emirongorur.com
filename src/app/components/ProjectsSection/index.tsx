@@ -97,12 +97,12 @@ const ProjectsSection = () => {
   return (
     <section id="projects">
       <div className="dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
-        <div className=" mx-auto lg:max-w-7xl flex  items-start justify-start  h-[100vh] overflow-hidden">
+        <div className=" mx-auto lg:max-w-7xl flex  items-start justify-start  min-h-[100vh] overflow-hidden">
           <div className=" flex flex-col gap-6 mt-24">
-            <h1 className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl w-full lg:leading-[3.7rem]">
+            <h1 className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl w-full lg:leading-[3.7rem] px-12 lg:px-12 xl:px-0">
               Projects & Open-Source contributions
             </h1>
-            <p className="max-w-5xl text-base dark:text-zinc-300 text-zinc-600 leading-relaxed">
+            <p className="max-w-5xl text-base dark:text-zinc-300 text-zinc-600 leading-relaxed px-12 lg:px-12 xl:px-0">
               I&apos;ve tackled a range of projects over the years, but these
               are the ones that truly stand out. They reflect my skills in Rust,
               my commitment to open-source contributions, and my deep interest
@@ -112,7 +112,7 @@ const ProjectsSection = () => {
             </p>
 
             {projects.length > 0 ? (
-              <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12">
+              <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12 px-12 lg:px-12 xl:px-0">
                 {projects.map((project) => (
                   <Link
                     href={`/projects/${project.slug}`}

@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { Providers } from "./provider";
 import { gitlabmono, incognito } from "./assets/fonts/font";
 import Navbar from "@components/Navbar";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,13 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html id="home" lang="en">
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable}  dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
       >
         <Providers>
           <Navbar />
           {children}
+          <Analytics />
         </Providers>
       </body>
     </html>

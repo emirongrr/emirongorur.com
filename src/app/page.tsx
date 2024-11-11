@@ -7,14 +7,14 @@ import LandingSection from "@components/LandingSection";
 
 const Home = () => {
   return (
-    <div>
+    <section id="#1" className="min-h-3xl">
       {/* home */}
       <LandingSection />
       {/* about me */}
       <AboutMeSection />
       {/* projects */}
       <ProjectsSection />
-    </div>
+    </section>
   );
 };
 

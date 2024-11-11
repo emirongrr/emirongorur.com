@@ -7,7 +7,7 @@ import MobileMenu from "./mobilemenu";
 const data = [
   {
     title: "Home",
-    href: "#",
+    href: "#home",
   },
   {
     title: "About",
@@ -19,13 +19,14 @@ const data = [
   },
   {
     title: "Blog",
-    href: "/blog",
+    href: "https://blog.emirongorur.com",
+    external: true,
   },
 ];
 
 const Navbar = () => {
   return (
-    <header className=" sticky top-0 text-sm py-6 md:px-16 px-6 border-b dark:bg-black dark:border-zinc-800 border-zinc-200 z-30">
+    <header className="sticky top-0 text-sm py-6 md:px-16 px-6 border-b dark:bg-black dark:border-zinc-800 border-zinc-200 z-30">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <Link href="#home"></Link>
 
@@ -33,12 +34,23 @@ const Navbar = () => {
           <ul className="flex items-center gap-x-8">
             {data.map((link, id) => (
               <li key={id}>
-                <Link
-                  href={link.href}
-                  className="font-incognito dark:text-white text-zinc-600 dark:hover:text-primary-color hover:text-zinc-900 duration-300 text-base"
-                >
-                  {link.title}
-                </Link>
+                {link.external ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-incognito dark:text-white text-black dark:hover:text-zinc-600 hover:text-zinc-900 duration-300 text-base"
+                  >
+                    {link.title}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="font-incognito dark:text-white text-black dark:hover:text-zinc-600 hover:text-zinc-900 duration-300 text-base"
+                  >
+                    {link.title}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

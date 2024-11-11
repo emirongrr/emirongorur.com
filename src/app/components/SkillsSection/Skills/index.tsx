@@ -4,7 +4,7 @@ import InfiniteLoopSlider from "./InfiniteLoopSlider";
 import { STACKS } from "./stacks";
 
 const Tag = memo(({ icon, title }: { icon: ReactNode; title: string }) => (
-  <div className="mr-3 flex w-max items-center gap-2 rounded-full border border-neutral-300 bg-neutral-50 px-5 py-2 text-[15px] shadow-sm dark:border-neutral-700 dark:bg-[#080808] dark:text-neutral-50">
+  <div className="mr-3  flex w-max items-center gap-2 rounded-full border border-neutral-300 bg-neutral-50 px-5 py-2 text-[15px] shadow-sm dark:border-neutral-700 dark:bg-[#080808] dark:text-neutral-50">
     {icon}
     <span>{title}</span>
   </div>
