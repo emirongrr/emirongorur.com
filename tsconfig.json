@@ -17,10 +17,17 @@
         "name": "next"
       }
     ],
-		"paths": {
-			"@components/*": ["./src/app/components/*"],
-		}
+    "paths": {
+      "@components/*": ["./src/app/components/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/GradientBackground", "src/app/components/LandingHero"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/components/GradientBackground",
+    "src/app/components/LandingHero"
+  ],
   "exclude": ["node_modules"]
 }

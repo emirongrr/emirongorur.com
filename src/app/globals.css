@@ -2,30 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .tittle-effect {
   will-change: transform;
   text-align: center;
   color: transparent;
   font-weight: 600;
-  font-family: 'Press Start 2P';
+  font-family: "Press Start 2P";
   font-size: 40px;
   line-height: 40px;
   letter-spacing: 5px;
-  text-shadow: -2px 0 0 #fdff2a,
-        -4px 0 0 #df4a42,
-        2px 0 0 #91fcfe,
-        4px 0 0 #4405fc;
+  text-shadow:
+    -2px 0 0 #fdff2a,
+    -4px 0 0 #df4a42,
+    2px 0 0 #91fcfe,
+    4px 0 0 #4405fc;
   animation: glitch 3s ease-in reverse infinite;
-
 }
 
 .gradientBg {
   width: 100%;
-  background: linear-gradient(-45deg, #2588a1, #da3e7f, #a255cf, #418dd4);
+  background: linear-gradient(-45deg, #2588a1, #63e, #000);
   background-size: 400% 400%;
   animation: efect 60s ease infinite;
-  z-index: -2;
+}
+@keyframes efect {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @layer utilities {

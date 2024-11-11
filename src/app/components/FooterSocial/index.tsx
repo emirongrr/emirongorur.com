@@ -1,7 +1,7 @@
-import React from 'react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
-import { SiFarcaster } from 'react-icons/si';
+import React from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { SiFarcaster } from "react-icons/si";
 
 const FooterSocials: React.FC = () => {
   return (

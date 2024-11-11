@@ -1,19 +1,24 @@
-'use client';
+"use client";
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 
 const EthereumLogo: React.FC = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
-  const clock = new THREE.Clock(); 
 
   useEffect(() => {
     if (!mountRef.current) return;
 
-    const currentMountRef = mountRef.current; 
+    const currentMountRef = mountRef.current;
+    const clock = new THREE.Clock();
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, currentMountRef.clientWidth / currentMountRef.clientHeight, 1, 1000);
+    const camera = new THREE.PerspectiveCamera(
+      60,
+      currentMountRef.clientWidth / currentMountRef.clientHeight,
+      1,
+      1000,
+    );
     camera.position.set(0, 0, 10);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -25,7 +30,9 @@ const EthereumLogo: React.FC = () => {
     scene.add(light, new THREE.AmbientLight(0xffffff, 0.5));
 
     const makePart = (pts: number[][]) => {
-      const geometry = new THREE.BufferGeometry().setFromPoints(pts.map(p => new THREE.Vector3(p[0], p[1], p[2])));
+      const geometry = new THREE.BufferGeometry().setFromPoints(
+        pts.map((p) => new THREE.Vector3(p[0], p[1], p[2])),
+      );
       geometry.setIndex([0, 1, 2, 0, 2, 3, 0, 3, 4, 0, 4, 1]);
       geometry.computeVertexNormals();
       return geometry;
@@ -36,7 +43,7 @@ const EthereumLogo: React.FC = () => {
       [0, -1, 0],
       [2, 0, 0],
       [0, 4, 0],
-      [-2, 0, 0]
+      [-2, 0, 0],
     ]);
 
     const gPartBottom = makePart([
@@ -44,7 +51,7 @@ const EthereumLogo: React.FC = () => {
       [0, -3, 0],
       [2, 0, 0],
       [0, -1, 0],
-      [-2, 0, 0]
+      [-2, 0, 0],
     ]);
     gPartBottom.translate(0, -0.5, 0);
 
@@ -57,20 +64,20 @@ const EthereumLogo: React.FC = () => {
     geometry.computeVertexNormals();
 
     const material = new THREE.MeshStandardMaterial({
-      color: 0x3C3C3D,
-      emissive: new THREE.Color(0x3C3C3D), 
+      color: 0x3c3c3d,
+      emissive: new THREE.Color(0x3c3c3d),
       metalness: 0.5,
-      roughness: 0.3
+      roughness: 0.3,
     });
     const ethMesh = new THREE.Mesh(geometry, material);
     scene.add(ethMesh);
 
-    // Animation 
+    // Animation
     const animate = () => {
       requestAnimationFrame(animate);
 
       const elapsedTime = clock.getElapsedTime();
-      ethMesh.position.y = Math.sin(elapsedTime) * 0.5; 
+      ethMesh.position.y = Math.sin(elapsedTime) * 0.5;
 
       renderer.render(scene, camera);
     };
@@ -90,9 +97,9 @@ const EthereumLogo: React.FC = () => {
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      currentMountRef.removeChild(renderer.domElement); 
+      currentMountRef.removeChild(renderer.domElement);
     };
-  }, [clock]); 
+  }, []);
 
   return <div ref={mountRef} style={{ width: "100%", height: "100%" }} />;
 };

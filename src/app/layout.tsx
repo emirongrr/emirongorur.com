@@ -29,10 +29,9 @@ export default function RootLayout({
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable}  dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
       >
         <Providers>
-        <Navbar/>
-        {children}
+          <Navbar />
+          {children}
         </Providers>
-
       </body>
     </html>
   );

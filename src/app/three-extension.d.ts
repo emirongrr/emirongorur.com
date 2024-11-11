@@ -1,8 +1,8 @@
-declare module 'three/examples/jsm/utils/BufferGeometryUtils' {
-  import { BufferGeometry } from 'three';
+declare module "three/examples/jsm/utils/BufferGeometryUtils" {
+  import { BufferGeometry } from "three";
 
   export function mergeBufferGeometries(
     geometries: BufferGeometry[],
-    useGroups?: boolean
+    useGroups?: boolean,
   ): BufferGeometry;
 }

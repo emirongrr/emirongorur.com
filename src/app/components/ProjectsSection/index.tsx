@@ -20,53 +20,62 @@ export type ProjectType = {
 
 const dummyProjects: ProjectType[] = [
   {
-    _id: '1',
-    name: 'BiFrost',
-    slug: 'bifrost',
-    tagline: 'A new paradigm for banks',
-    projectUrl: 'loaneth.vercel.app',
-    repository: 'https://github.com/emirongrr/bifrost',
+    _id: "1",
+    name: "BiFrost",
+    slug: "bifrost",
+    tagline: "A new paradigm for banks",
+    projectUrl: "loaneth.vercel.app",
+    repository: "https://github.com/emirongrr/bifrost",
     logo: "",
     coverImage: {
-      image: 'https://example.com/cover1.png',
-      alt: 'Cover image for Project One',
-      lqip: 'base64EncodedLQIP1',
+      image: "https://example.com/cover1.png",
+      alt: "Cover image for Project One",
+      lqip: "base64EncodedLQIP1",
     },
-    description: "a new paradigm for banks"
+    description: "a new paradigm for banks",
   },
   {
-    _id: '2',
-    name: 'Social Network Analysis Book Series',
-    slug: 'Social network analysis Game of Thrones',
-    tagline: 'Analyzing the interactions between characters can unveil hidden patterns.',
-    projectUrl: '',
-    repository: 'https://github.com/emirongrr/Social-Network-Analysis-Game-of-Thrones',
-    logo: '',
+    _id: "2",
+    name: "Social Network Analysis Book Series",
+    slug: "Social network analysis Game of Thrones",
+    tagline:
+      "Analyzing the interactions between characters can unveil hidden patterns.",
+    projectUrl: "",
+    repository:
+      "https://github.com/emirongrr/Social-Network-Analysis-Game-of-Thrones",
+    logo: "",
     coverImage: {
-      image: 'https://example.com/cover2.png',
-      alt: 'Cover image for Project Two',
-      lqip: 'base64EncodedLQIP2',
+      image: "https://example.com/cover2.png",
+      alt: "Cover image for Project Two",
+      lqip: "base64EncodedLQIP2",
     },
-    description: "SNA Game Of Thrones"
-  },  {
-    _id: '3',
-    name: 'Ethereum Rust Execution Client',
-    slug: 'ethereum-rust-execution-client',
-    tagline: 'Ethereum rust execution client',
-    projectUrl: '',
-    repository: 'https://github.com/emirongrr/ethereum_rust',
-    logo: '',
+    description: "SNA Game Of Thrones",
+  },
+  {
+    _id: "3",
+    name: "Ethereum Rust Execution Client",
+    slug: "ethereum-rust-execution-client",
+    tagline: "Ethereum rust execution client",
+    projectUrl: "",
+    repository: "https://github.com/emirongrr/ethereum_rust",
+    logo: "",
     coverImage: {
-      image: 'https://example.com/cover2.png',
-      alt: 'Cover image for Project Two',
-      lqip: 'base64EncodedLQIP2',
+      image: "https://example.com/cover2.png",
+      alt: "Cover image for Project Two",
+      lqip: "base64EncodedLQIP2",
     },
-    description: "Ethereum Rust Execution Client"
-  }
+    description: "Ethereum Rust Execution Client",
+  },
 ];
 
-async function sanityFetch({ query, tags }: { query: string; tags: string[] }): Promise<ProjectType[]> {
-  console.log('Simulating fetch with query:', query, 'and tags:', tags);
+async function sanityFetch({
+  query,
+  tags,
+}: {
+  query: string;
+  tags: string[];
+}): Promise<ProjectType[]> {
+  console.log("Simulating fetch with query:", query, "and tags:", tags);
   return dummyProjects;
 }
 
@@ -76,12 +85,12 @@ const ProjectsSection = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       const fetchedProjects = await sanityFetch({
-        query: 'projectsQuery',
-        tags: ['project'],
+        query: "projectsQuery",
+        tags: ["project"],
       });
       setProjects(fetchedProjects);
     };
-    
+
     fetchProjects();
   }, []);
 

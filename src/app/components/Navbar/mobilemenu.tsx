@@ -61,8 +61,7 @@ export default function MobileMenu() {
         }`}
       >
         <div className="flex items-center justify-between mt-6 px-8">
-          <Link href="/" onClick={onToggleNav}>
-          </Link>
+          <Link href="/" onClick={onToggleNav}></Link>
 
           <button
             aria-label="Toggle Menu"

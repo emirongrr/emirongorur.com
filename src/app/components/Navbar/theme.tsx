@@ -4,7 +4,6 @@ import { useTheme } from "next-themes";
 import SunIcon from "../../assets/icons/sun";
 import MoonIcon from "../../assets/icons/moon";
 
-
 export default function Theme() {
   const { systemTheme, theme, setTheme } = useTheme();
   const [hasMounted, setHasMounted] = useState(false);
