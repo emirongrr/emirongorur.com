@@ -1,5 +1,4 @@
 "use client";
-
 import { useRouter, usePathname } from "next/navigation";
 import { useState } from "react";
 import { IoLanguage } from "react-icons/io5";
@@ -21,7 +20,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
 
   const handleLanguageChange = (language: string) => {
     const newPath = `/${language}${pathname.replace(`/${currentLocale}`, "")}`;
-    router.replace(newPath); // Sayfa yeniden yüklenmeden dil değişimi
+    console.log(newPath);
+    router.replace(newPath);
     setIsOpen(false);
   };
 
