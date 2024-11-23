@@ -10,10 +10,10 @@ export default function Home({
   };
 }) {
   const lng = languages.includes(params.lng) ? params.lng : fallbackLng;
-
+  
   return (
     <section className="min-h-3xl">
-      <p>blog</p>
+      <p>blog {lng} </p>
     </section>
   );
 }
