@@ -17,6 +17,7 @@ const config: Config = {
         effect: "effect 60s ease infinite",
         glitch: "glitch 3s ease-in reverse infinite",
         "looping-tag": "loop 100s linear infinite",
+        "bg-animation": "background-color 0.4s ease;",
       },
       keyframes: {
         effect: {

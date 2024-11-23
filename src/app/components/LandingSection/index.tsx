@@ -1,21 +1,13 @@
-import GradientBackground from "@components/GradientBackground";
-import LandingHeroText from "@components/LandingHero";
+import { useTranslation } from "../../i18n";
+import LandingSectionBase from "./LandingHeroBase";
 
-const LandingSection = () => {
-  return (
-    <main className="flex justify-center items-center w-full min-h-full md:h-[calc(100vh-89px)] overflow-hidden">
-      <section className="flex w-full h-full flex-col">
-        <div className="h-full">
-          <GradientBackground>
-            <LandingHeroText />
-          </GradientBackground>
-        </div>
-        <div className="bg-[#000] w-full overflow-hidden mt-auto h-[calc(100vh-calc(100vh-89px))]">
-          {/* space */}
-        </div>
-      </section>
-    </main>
-  );
+export const LandingSection = async ({
+  lng,
+  path,
+}: {
+  lng: string;
+  path?: string;
+}) => {
+  const { t, i18n } = await useTranslation(lng, "landing");
+  return <LandingSectionBase i18n={i18n} lng={lng} path={path} />;
 };
-
-export default LandingSection;

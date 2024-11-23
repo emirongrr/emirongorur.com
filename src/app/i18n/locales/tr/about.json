@@ -1,0 +1,6 @@
+{
+  "aboutTitle": "Emir Öngörür, I live in Türkiye, where I build the future.",
+  "aboutContent": "Kendi kendini motive edebilen ve kariyer odaklı bir yazılım geliştiriciyim. Blockchain geliştirme ve açık kaynak katkıları konusunda güçlü bir uzmanlığa sahibim. Şu anda sıfır bilgi (zk) kanıtları konusunda bilgi birikimimi artırarak bu teknolojinin gizlilik ve ölçeklenebilirlik açısından blockchain sistemlerindeki uygulamalarını keşfediyorum. Uzmanlık alanım, temiz kod prensiplerine, optimizasyona ve kod okunabilirliğine güçlü bir odaklanma ile verimli ve güvenli sistemler geliştirmek. Sürdürülebilir ve ölçeklenebilir çözümler yazmayı önceliklendiriyorum. Genellikle Rust, Next.js, TypeScript ve Python gibi teknolojilerle çalışıyorum. Çoğunlukla blockchain teknolojilerine, zk teknolojilerine ve akıllı kontratlara odaklanırken, backend ve frontend geliştirme becerilerimi de sürekli olarak geliştiriyorum. Backend tarafında mikro hizmet mimarisi, CI/CD süreçleri, RESTful API'ler ve GraphQL gibi teknolojilerle çalışıyorum. Frontend tarafında ise React, Next.js ve Tailwind CSS gibi modern araçlarla kullanıcı dostu arayüzler tasarlıyorum. Bunun yanı sıra eğlenceli projeler yaratmaktan ve çeşitli startup fikirlerini denemekten keyif alıyorum.",
+  "viewResume": "Özgeçmişi görüntüle",
+  "technologiesSkills": "Teknolojiler & Yetenekler"
+}

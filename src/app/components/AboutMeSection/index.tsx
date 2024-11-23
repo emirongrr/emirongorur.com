@@ -1,104 +1,13 @@
-import RefLink from "@components/RefLink";
-import SkillsSection from "@components/SkillsSection";
-import { Metadata } from "next";
-import Image from "next/image";
-import { BiEnvelope, BiLinkExternal, BiSolidDownload } from "react-icons/bi";
+import { useTranslation } from "../../i18n";
+import AboutMeSectionBase from "./AboutMeSectionBase";
 
-export const metadata: Metadata = {
-  title: "About | Emir Öngörür",
-  metadataBase: new URL("https://emirongorur.com/about"),
-  description:
-    "Learn more about my skills, experience and technical background",
-  openGraph: {
-    title: "About | Emir Öngörür",
-    url: "https://emirongorur.com/about",
-    description:
-      "Learn more about my skills, experience and technical background",
-    images: "https://avatars.githubusercontent.com/u/80769968?v=4",
-  },
+export const AboutMeSection = async ({
+  lng,
+  path,
+}: {
+  lng: string;
+  path?: string;
+}) => {
+  const { t, i18n } = await useTranslation(lng, "about");
+  return <AboutMeSectionBase i18n={i18n} lng={lng} path={path} />;
 };
-
-const AboutMeSection = () => {
-  return (
-    <section
-      id="about"
-      className="bg-[#000] flex justify-center items-center w-full min-h-screen overflow-hidden"
-    >
-      <main className="w-full h-full lg:max-w-7xl max-w-3xl overflow-hidden mt-24">
-        <div className="min-h-[70%]">
-          <section className="flex flex-col lg:flex-row-reverse h-full">
-            {/* photo */}
-            <aside className="flex flex-col items-center lg:justify-self-center justify-self-start p-6 w-full lg:w-[40%]">
-              <div className="sticky top-10 p-4">
-                <Image
-                  className="rounded-2xl mb-4 object-cover  min-h-96 bg-top"
-                  src={"/assets/80769968.png"}
-                  width={500}
-                  height={500}
-                  quality={100}
-                  alt={"profile image"}
-                  placeholder="blur"
-                  blurDataURL={"data.profileImage.lqip"}
-                  priority
-                />
-
-                <div className="flex flex-col text-center gap-y-4 mt-4">
-                  <div className="max-w-[500px] flex justify-center gap-x-4">
-                    <RefLink
-                      href=""
-                      className="flex items-center justify-center text-center gap-x-2 basis-[90%] dark:bg-[#080808] bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-2 text-lg font-incognito font-semibold"
-                    >
-                      View Résumé <BiLinkExternal className="text-base" />
-                    </RefLink>
-                    <a
-                      href={`${"data.resumeURL"}?dl=${"data.fullName"}-resume`}
-                      className="flex items-center justify-center text-center dark:text-primary-color text-secondary-color hover:underline basis-[10%] dark:bg-[#080808] bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-3 text-lg"
-                      title="Download Resume"
-                    >
-                      <BiSolidDownload
-                        className="text-lg"
-                        aria-label="Download Resume"
-                      />
-                    </a>
-                  </div>
-                  <a
-                    href={`mailto:info@emirongorur.com`}
-                    className="flex items-center gap-x-2 hover:text-primary-color"
-                  >
-                    <BiEnvelope className="text-lg" />
-                    {"info@emirongorur.com"}
-                  </a>
-                </div>
-              </div>
-            </aside>
-
-            {/* text */}
-            <div className="flex flex-col w-full lg:w-[60%] p-6">
-              <h1 className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight basis-1/4 p-6">
-                I&apos;m Emir Öngörür. I live in Türkiye, where I build the
-                future.
-              </h1>
-              <p className="p-6 h-full">
-                I am a self-driven, career-oriented software developer
-                specializing in front-end development and open-source, currently
-                pursuing a bachelors degree in computer science. My expertise
-                lies in building interactive web applications on the client
-                side. Primarily working with technologies like JavaScript,
-                Next.js, TypeScript and Python. I strongly believe in continuous
-                learning and improving myself, so I try my best to learn in any
-                situation possible, unfavorable or not.
-              </p>
-            </div>
-          </section>
-        </div>
-
-        {/* skills */}
-        <div className="w-full h-[30%] min-h-[300px]">
-          <SkillsSection />
-        </div>
-      </main>
-    </section>
-  );
-};
-
-export default AboutMeSection;

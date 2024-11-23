@@ -27,7 +27,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/components/GradientBackground",
-    "src/app/components/LandingHero"
+    "src/app/components/LandingSection",
+    "src/app/middleware.js"
   ],
   "exclude": ["node_modules"]
 }

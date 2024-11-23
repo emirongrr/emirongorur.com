@@ -82,8 +82,12 @@ export default function MobileMenu() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-incognito dark:text-white text-black dark:hover:text-zinc-600 hover:text-zinc-900 duration-300 text-base"
+                  className="flex font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light items-center gap-x-2 group dark:hover:text-zinc-600 hover:text-zinc-900 p-6"
                 >
+                  <link.icon
+                    className="text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300"
+                    aria-hidden="true"
+                  />
                   {link.title}
                 </a>
               ) : (
