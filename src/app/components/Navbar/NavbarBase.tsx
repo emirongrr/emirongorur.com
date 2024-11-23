@@ -5,15 +5,7 @@ import { i18n } from "i18next";
 import LanguageSwitcher from "@components/LanguageSwitcher";
 import { languages } from "../../i18n/settings";
 
-const NavbarBase = ({
-  i18n,
-  lng,
-  path = "",
-}: {
-  i18n: i18n;
-  lng: string;
-  path?: string;
-}) => {
+const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   const t = i18n.getFixedT(lng, "common");
   const data = [
     {

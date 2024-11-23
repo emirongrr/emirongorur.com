@@ -80,15 +80,7 @@ async function sanityFetch({
   return dummyProjects;
 }
 
-const ProjectsSectionBase = ({
-  i18n,
-  lng,
-  path = "",
-}: {
-  i18n: i18n;
-  lng: string;
-  path?: string;
-}) => {
+const ProjectsSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   const [projects, setProjects] = useState<ProjectType[]>([]);
   const t = i18n.getFixedT(lng, "projects");
 

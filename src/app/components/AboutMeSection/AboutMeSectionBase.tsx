@@ -19,15 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-const AboutMeSectionBase = ({
-  i18n,
-  lng,
-  path = "",
-}: {
-  i18n: i18n;
-  lng: string;
-  path?: string;
-}) => {
+const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   const t = i18n.getFixedT(lng, "about");
   return (
     <section

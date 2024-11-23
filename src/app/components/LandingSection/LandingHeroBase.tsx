@@ -4,15 +4,7 @@ import FooterSocials from "@components/FooterSocial";
 import { i18n } from "i18next";
 import GradientBackground from "@components/GradientBackground";
 
-const LandingSectionBase = ({
-  i18n,
-  lng,
-  path = "",
-}: {
-  i18n: i18n;
-  lng: string;
-  path?: string;
-}) => {
+const LandingSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   const t = i18n.getFixedT(lng, "landing");
 
   return (

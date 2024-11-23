@@ -4,15 +4,14 @@ import { LandingSection } from "@components/LandingSection";
 import { AboutMeSection } from "@components/AboutMeSection";
 import { ProjectsSection } from "@components/ProjectsSection";
 
-export default async function Home({
+export default function Home({
   params,
 }: {
   params: {
     lng: string;
   };
 }) {
-  let { lng } = await params;
-  if (languages.indexOf(lng) < 0) lng = fallbackLng;
+  const lng = languages.includes(params.lng) ? params.lng : fallbackLng;
 
   return (
     <section className="min-h-3xl">

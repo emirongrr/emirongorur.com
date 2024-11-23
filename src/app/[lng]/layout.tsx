@@ -18,23 +18,6 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: {
-    lng: string;
-  };
-}) {
-  let { lng } = await params;
-  if (languages.indexOf(lng) < 0) lng = fallbackLng;
-  const { t } = await useTranslation(lng, "common");
-  return {
-    title: t("siteTitle"),
-    content: t("siteContent"),
-    metadataBase: new URL("https://emirongorur.com"),
-  };
-}
-
 export default async function RootLayout({
   children,
   params,
@@ -44,12 +27,25 @@ export default async function RootLayout({
     lng: string;
   };
 }) {
-  const { lng } = await params;
+  let { lng } = params;
+  if (languages.indexOf(lng) < 0) lng = fallbackLng;
+
+  const { t } = await useTranslation(lng, "common");
+
+  const metadata = {
+    title: t("siteTitle"),
+    content: t("siteContent"),
+    metadataBase: new URL("https://emirongorur.com"),
+  };
+
   return (
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
-      <head />
+      <head>
+        <meta name="title" content={metadata.title} />
+        <meta name="description" content={metadata.content} />
+      </head>
       <body
-        className={`${incognito.variable} ${inter.className} ${gitlabmono.variable}  dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
+        className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
       >
         <Providers>
           <Navbar lng={lng} />
