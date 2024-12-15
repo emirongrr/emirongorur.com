@@ -1,14 +1,17 @@
-// src/app/components/Container/index.tsx
+import { ReactNode } from 'react';
 
-import { ElementType, ReactNode } from "react";
-
-type ContainerProps = { children: ReactNode; as?: ElementType };
-
-export default function Container({ children, as }: ContainerProps) {
-  const Tag = as ?? "div";
-  return (
-    <Tag className="mx-auto w-full max-w-[80rem] px-[1rem] md:px-[1.5rem] lg:px-[2rem]">
-      {children}
-    </Tag>
-  );
+interface ContainerProps {
+  children: ReactNode;
+  className?: string;
+  [propName: string]: ReactNode | string | undefined;
 }
+
+const Container = ({ children, className = '', ...others }: ContainerProps) => {
+  return (
+    <div className={`mb-10 mt-20 p-8 lg:mt-0 ${className} `} {...others}>
+      {children}
+    </div>
+  );
+};
+
+export default Container;

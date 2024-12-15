@@ -43,6 +43,7 @@ export default async function RootLayout({
       <head>
         <meta name="title" content={metadata.title} />
         <meta name="description" content={metadata.content} />
+        <link rel="icon" href="/assets/favicon.ico" sizes="any" />
       </head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
