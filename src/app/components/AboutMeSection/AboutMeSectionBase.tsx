@@ -1,3 +1,4 @@
+'use client'
 import SkillsSection from "@components/SkillsSection";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -24,7 +25,7 @@ const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   return (
     <section
       id="about"
-      className="bg-[#000] flex justify-center items-center w-full min-h-screen overflow-hidden"
+      className="bg-white dark:bg-[#000] flex justify-center items-center w-full min-h-screen overflow-hidden"
     >
       <main className="w-full h-full lg:max-w-7xl max-w-3xl overflow-hidden mt-16">
         <div className="min-h-[70%]">

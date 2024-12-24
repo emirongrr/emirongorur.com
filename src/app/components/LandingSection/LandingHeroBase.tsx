@@ -15,7 +15,7 @@ const LandingSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
             <div className="flex flex-col items-center justify-center text-center w-full p-4 lg:p-8">
               {/* Title Section */}
               <div className="mb-6 lg:max-w-2xl max-w-full">
-                <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl leading-tight lg:min-w-[700px]">
+                <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl leading-tight text-white lg:min-w-[700px]">
                   {t("landingTitle")}
                 </h1>
                 <p className="text-base text-zinc-300 leading-relaxed mt-4">
@@ -33,7 +33,7 @@ const LandingSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
             </div>
           </GradientBackground>
         </div>
-        <div className="bg-[#000] w-full overflow-hidden mt-auto h-[calc(100vh-calc(100vh-89px))]">
+        <div className="bg-white w-full overflow-hidden mt-auto dark:bg-[#000] h-[calc(100vh-calc(100vh-89px))]">
           {/* Additional space or other content */}
         </div>
       </section>
