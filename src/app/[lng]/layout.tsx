@@ -36,6 +36,7 @@ export default async function RootLayout({
   const metadata = {
     title: t("siteTitle"),
     description: t("siteContent"),
+    searchEngine: t("searchEngine"),
     url: "https://emirongorur.com",
     image: "https://emirongorur.com/api/og",
   };
@@ -51,12 +52,21 @@ export default async function RootLayout({
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
         <meta property="og:image" content={metadata.image} />
+        <meta property="twitter:image" content={metadata.image}/>
+        <meta property="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:title" content={metadata.title}></meta>
+        <meta property="twitter:description" content={metadata.description}/>
+        <meta property="description" content={metadata.searchEngine}/>
+        <meta property="og:site_name" content={metadata.title}/>
+        
+        <title>{metadata.title}</title>
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={metadata.url} />
         <meta name="twitter:title" content={metadata.title} />
         <meta name="twitter:description" content={metadata.description} />
         <meta name="twitter:image" content={metadata.image} />
+
 
         <link rel="icon" href="/assets/favicon.ico" sizes="any" />
       </Head>
