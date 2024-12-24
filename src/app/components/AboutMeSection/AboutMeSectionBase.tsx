@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import SkillsSection from "@components/SkillsSection";
 import { Metadata } from "next";
 import Image from "next/image";

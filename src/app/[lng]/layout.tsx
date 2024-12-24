@@ -7,6 +7,7 @@ import { Providers } from "../provider";
 import { gitlabmono, incognito } from "../assets/fonts/font";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+import Head from "next/head";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,16 +35,31 @@ export default async function RootLayout({
 
   const metadata = {
     title: t("siteTitle"),
-    content: t("siteContent"),
-    metadataBase: new URL("https://emirongorur.com"),
+    description: t("siteContent"),
+    url: "https://emirongorur.com",
+    image: "https://emirongorur.com/api/og",
   };
 
   return (
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
-      <head>
+      <Head>
         <meta name="title" content={metadata.title} />
-        <meta name="description" content={metadata.content} />
-      </head>
+        <meta name="description" content={metadata.description} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={metadata.url} />
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:description" content={metadata.description} />
+        <meta property="og:image" content={metadata.image} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={metadata.url} />
+        <meta name="twitter:title" content={metadata.title} />
+        <meta name="twitter:description" content={metadata.description} />
+        <meta name="twitter:image" content={metadata.image} />
+
+        <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+      </Head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
       >

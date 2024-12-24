@@ -18,7 +18,8 @@
       }
     ],
     "paths": {
-      "@components/*": ["./src/app/components/*"]
+      "@components/*": ["./src/app/components/*"],
+      "@assets/*": ["./public/assets/*"]
     }
   },
   "include": [
