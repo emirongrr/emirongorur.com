@@ -1,14 +1,13 @@
 import { createClient, type QueryParams } from "next-sanity";
 
-import { apiVersion, dataset, projectId } from '../env'
+import { apiVersion, dataset, projectId } from "../env";
 
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
-})
-
+  useCdn: true,
+});
 
 export const sanityFetch = async <QueryResponse>({
   query,
@@ -26,6 +25,6 @@ export const sanityFetch = async <QueryResponse>({
     return data;
   } catch (error) {
     console.error("Sanity fetch error:", error);
-    throw error;  // Ensure you rethrow or handle errors
+    throw error;
   }
 };

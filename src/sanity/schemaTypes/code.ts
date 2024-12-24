@@ -1,15 +1,14 @@
 import { defineType, defineField } from "sanity";
 
-// Define the 'code' type
 export const code = defineType({
   name: "code",
   title: "Code Block",
-  type: "object", // 'code' is an object, not a primitive type
+  type: "object",
   fields: [
     defineField({
       name: "language",
       title: "Language",
-      type: "string", // Specify the programming language used
+      type: "string",
       options: {
         list: [
           { title: "JavaScript", value: "javascript" },
@@ -17,14 +16,13 @@ export const code = defineType({
           { title: "Python", value: "python" },
           { title: "Java", value: "java" },
           { title: "Bash", value: "bash" },
-          // Add more languages as needed
         ],
       },
     }),
     defineField({
       name: "code",
       title: "Code",
-      type: "text", // This field stores the code as a string
+      type: "text",
     }),
   ],
 });

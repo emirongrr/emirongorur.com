@@ -1,33 +1,32 @@
-import Skeleton from 'react-loading-skeleton';
-import SkeletonLoader from './SkeletonLoader';
-import Card from '../BlogCard';
-
+import Skeleton from "react-loading-skeleton";
+import SkeletonLoader from "./SkeletonLoader";
+import Card from "../BlogCard";
 
 const BlogCardSkeleton = () => {
   return (
     <SkeletonLoader>
-      <Card className='min-w-[350px] border border-neutral-200 dark:border-neutral-800 dark:bg-neutral-800'>
-        <div className='h-48 rounded-t-xl'>
+      <Card className="min-w-[350px] border border-neutral-200 dark:border-neutral-800 dark:bg-neutral-800">
+        <div className="h-48 rounded-t-xl">
           <Skeleton
             height={192}
-            containerClassName='flex'
-            className='!rounded-b-none !rounded-t-xl'
+            containerClassName="flex"
+            className="!rounded-b-none !rounded-t-xl"
           />
         </div>
-        <div className='flex h-[126px] flex-col space-y-3 p-5'>
+        <div className="flex h-[126px] flex-col space-y-3 p-5">
           <Skeleton count={2} />
-          <div className='flex gap-4'>
+          <div className="flex gap-4">
             <Skeleton
-              className='h-4 !rounded-full'
-              containerClassName='w-1/3'
+              className="h-4 !rounded-full"
+              containerClassName="w-1/3"
             />
             <Skeleton
-              className='h-4 !rounded-full'
-              containerClassName='w-1/3'
+              className="h-4 !rounded-full"
+              containerClassName="w-1/3"
             />
             <Skeleton
-              className='h-4 !rounded-full'
-              containerClassName='w-1/3'
+              className="h-4 !rounded-full"
+              containerClassName="w-1/3"
             />
           </div>
         </div>

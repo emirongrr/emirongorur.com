@@ -1,26 +1,29 @@
-import clsx from 'clsx';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { useState } from 'react';
-import { BsArrowRight as MoreIcon } from 'react-icons/bs';
-import { FaRegEye as ViewIcon } from 'react-icons/fa';
-import { HiOutlineClock as ClockIcon } from 'react-icons/hi';
-import { TbCalendarBolt as DateIcon } from 'react-icons/tb';
-import { PostType } from '../Types/table';
-import { calculateReadingTime, formatDate, formatExcerpt } from '@components/Helpers';
-import Card from '../BlogCard';
-import Image from '@components/Blog/BlogImage/Image';
-import Breakline from '@components/Breakline/Breakline';
-import Tooltip from './Tooltip';
-import { toPlainText } from 'next-sanity';
+import clsx from "clsx";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+import { BsArrowRight as MoreIcon } from "react-icons/bs";
+import { FaRegEye as ViewIcon } from "react-icons/fa";
+import { HiOutlineClock as ClockIcon } from "react-icons/hi";
+import { TbCalendarBolt as DateIcon } from "react-icons/tb";
+import { PostType } from "../Types/table";
+import {
+  calculateReadingTime,
+  formatDate,
+  formatExcerpt,
+} from "@components/Helpers";
+import Card from "../BlogCard";
+import Image from "@components/Blog/BlogImage/Image";
+import Breakline from "@components/Breakline/Breakline";
+import Tooltip from "./Tooltip";
+import { toPlainText } from "next-sanity";
+import FallBackImage from "@components/FallbackImage/fallBackImage";
 
 interface BlogCardProps extends PostType {
-  isExcerpt?: boolean; 
+  isExcerpt?: boolean;
 }
 
 const BlogCardNew = ({
-  _id,
-  _createdAt,
   title,
   slug,
   description,
@@ -28,15 +31,13 @@ const BlogCardNew = ({
   coverImage,
   tags,
   body,
-  isExcerpt = true, 
+  isExcerpt = true,
 }: BlogCardProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const readingTimeMinutes = calculateReadingTime(toPlainText(body)) ?? 0;
 
   const tagList = tags ?? [];
-
-  const defaultImage = '';
 
   const slideDownVariants = {
     hidden: { opacity: 0, y: -10 },
@@ -54,17 +55,22 @@ const BlogCardNew = ({
         <div
           className="relative rounded-xl duration-500"
           style={{
-            height: '400px',
-            overflow: 'hidden',
+            height: "400px",
+            overflow: "hidden",
           }}
         >
-          <Image
-            src={coverImage?.image || defaultImage}
-            alt={coverImage?.alt || title || 'Blog Cover'}
-            fill={true}
-            sizes="100vw, 100vh"
-            className="h-full w-full transform object-cover object-left transition-transform duration-300 group-hover:scale-105 group-hover:blur-sm"
-          />
+          {coverImage ? (
+            <Image
+              src={coverImage?.image}
+              alt={coverImage?.alt || title || "Blog Cover"}
+              fill={true}
+              sizes="100vw, 100vh"
+              className="h-full w-full transform object-cover object-left transition-transform duration-300 group-hover:scale-105 group-hover:blur-sm"
+            />
+          ) : (
+            <FallBackImage />
+          )}
+
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black opacity-80 transition-opacity duration-300"></div>
         </div>
 
@@ -91,7 +97,7 @@ const BlogCardNew = ({
               </h3>
               <div className="flex items-center gap-1 text-neutral-400">
                 <DateIcon size={14} />
-                <span className="ml-0.5 text-xs">{formatDate(date ?? '')}</span>
+                <span className="ml-0.5 text-xs">{formatDate(date ?? "")}</span>
               </div>
               {isExcerpt && (
                 <p className="text-sm leading-relaxed text-neutral-400">
@@ -118,17 +124,15 @@ const BlogCardNew = ({
               <motion.div
                 variants={slideDownVariants}
                 initial="visible"
-                animate={isHovered ? 'hidden' : 'visible'}
+                animate={isHovered ? "hidden" : "visible"}
                 className={clsx(
-                  'flex justify-between gap-4',
-                  isHovered && 'hidden'
+                  "flex justify-between gap-4",
+                  isHovered && "hidden",
                 )}
               >
                 <div className="flex items-center gap-1">
                   <ViewIcon size={14} />
-                  <span className="ml-0.5 text-xs font-medium">
-                    100 VIEWS
-                  </span>
+                  <span className="ml-0.5 text-xs font-medium">VIEWS</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <ClockIcon size={14} />
@@ -142,10 +146,10 @@ const BlogCardNew = ({
               <motion.div
                 variants={slideDownVariants}
                 initial="hidden"
-                animate={isHovered ? 'visible' : 'hidden'}
+                animate={isHovered ? "visible" : "hidden"}
                 className={clsx(
-                  'flex items-center gap-1',
-                  !isHovered && 'hidden'
+                  "flex items-center gap-1",
+                  !isHovered && "hidden",
                 )}
               >
                 <span className="mr-0.5 text-xs font-medium">READ MORE</span>

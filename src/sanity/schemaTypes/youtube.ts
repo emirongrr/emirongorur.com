@@ -1,7 +1,6 @@
 import { defineField, defineType } from "sanity";
-
 import { FiYoutube } from "react-icons/fi";
-import { YoutubeWidget } from "@components/Widget/YoutubeWidget";
+import { YouTubeWidget } from "@components/Widget/YoutubeWidget";
 
 export const youtube = defineType({
   name: "youtube",
@@ -28,6 +27,6 @@ export const youtube = defineType({
     },
   },
   components: {
-    preview: YoutubeWidget,
+    preview: YouTubeWidget,
   },
 });

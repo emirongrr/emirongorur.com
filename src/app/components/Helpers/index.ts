@@ -1,7 +1,9 @@
-import { ChapterGroupProps, MdxFileContentProps } from '@components/Blog/Types/learn';
-import { format, parseISO } from 'date-fns';
-import { formatInTimeZone } from 'date-fns-tz';
-
+import {
+  ChapterGroupProps,
+  MdxFileContentProps,
+} from "@components/Blog/Types/learn";
+import { format } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 
 interface ParsedUrlProps {
   parentSlug: string;
@@ -10,13 +12,13 @@ interface ParsedUrlProps {
 
 export const formatBlogSlug = (slug: string) => slug?.slice(0, -5);
 
-export const formatDate = (date: string, type = 'MMMM dd, yyyy') => {
+export const formatDate = (date: string, type = "MMMM dd, yyyy") => {
   if (!date) {
-    return '';
+    return "";
   }
 
   const formattedDate = format(
-    formatInTimeZone(date, 'Europe/Paris', 'yyyy-MM-dd HH:mm:ss zzz'),
+    formatInTimeZone(date, "Europe/Paris", "yyyy-MM-dd HH:mm:ss zzz"),
     type,
   );
   return formattedDate;
@@ -30,7 +32,7 @@ export const groupContentByChapter = (
       const { frontMatter } = content;
 
       const chapter_id = frontMatter.chapter_id ?? 0;
-      const chapter_title = frontMatter.chapter_title || 'ungrouped';
+      const chapter_title = frontMatter.chapter_title || "ungrouped";
 
       if (!acc[chapter_id]) {
         acc[chapter_id] = {
@@ -49,7 +51,7 @@ export const groupContentByChapter = (
 };
 
 export const parseUrl = (url: string): ParsedUrlProps => {
-  const parts = url.split('/');
+  const parts = url.split("/");
   return {
     parentSlug: parts[2],
     contentSlug: parts[3],
@@ -57,9 +59,9 @@ export const parseUrl = (url: string): ParsedUrlProps => {
 };
 
 export const removeHtmlTags = (html: string) => {
-  if (typeof DOMParser !== 'undefined') {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return doc.body.textContent || '';
+  if (typeof DOMParser !== "undefined") {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent || "";
   } else {
     return html;
   }
@@ -72,11 +74,10 @@ export const formatExcerpt = (content: string, maxLength = 100) => {
     return cleanedContent;
   }
 
-  const trimmed = cleanedContent.substring(0, maxLength).replace(/\s+\S*$/, '');
+  const trimmed = cleanedContent.substring(0, maxLength).replace(/\s+\S*$/, "");
 
-  return trimmed + (cleanedContent.length > maxLength ? '...' : '');
+  return trimmed + (cleanedContent.length > maxLength ? "..." : "");
 };
-
 
 export function calculateReadingTime(words: string) {
   const trimString = words.trim();

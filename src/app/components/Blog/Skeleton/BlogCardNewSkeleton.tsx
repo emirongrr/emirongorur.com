@@ -1,16 +1,15 @@
-import Skeleton from 'react-loading-skeleton';
-import SkeletonLoader from './SkeletonLoader';
-import Card from '../BlogCard';
-
+import Skeleton from "react-loading-skeleton";
+import SkeletonLoader from "./SkeletonLoader";
+import Card from "../BlogCard";
 
 const BlogCardNewSkeleton = () => {
   return (
     <SkeletonLoader>
-      <Card className='min-w-[326px]'>
+      <Card className="min-w-[326px]">
         <Skeleton
           height={398}
-          containerClassName='flex'
-          className='!rounded-xl'
+          containerClassName="flex"
+          className="!rounded-xl"
         />
       </Card>
     </SkeletonLoader>

@@ -18,15 +18,17 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 
+interface RootLayoutProps {
+  children: React.ReactNode;
+  params: {
+    lng: string; // Ensuring `lng` is typed correctly as a string
+  };
+}
+
 export default async function RootLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: {
-    lng: string;
-  };
-}) {
+}: RootLayoutProps) {
   let { lng } = params;
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
 

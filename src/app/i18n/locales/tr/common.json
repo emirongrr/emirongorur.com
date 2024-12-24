@@ -4,5 +4,9 @@
   "home": "Anasayfa",
   "about": "Hakkımda",
   "projects": "Projeler",
-  "blog": "Blog"
+  "blog": "Blog",
+    "blogTitle": "Blog | Emir Öngörür",
+    "blogDescription": "Emir Öngörür'ün Blogundan son makaleyi okuyun",
+    "openGraphDescription": "Emir Öngörür'ün Blogundan son makaleyi okuyun"
+  
 }

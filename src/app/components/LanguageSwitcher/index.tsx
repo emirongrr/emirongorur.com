@@ -20,7 +20,6 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
 
   const handleLanguageChange = (language: string) => {
     const newPath = `/${language}${pathname.replace(`/${currentLocale}`, "")}`;
-    console.log(newPath);
     router.replace(newPath);
     setIsOpen(false);
   };

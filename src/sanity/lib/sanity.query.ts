@@ -82,16 +82,6 @@ export const featuredPostsQuery = groq`*[_type == "Post" && featured == true] | 
   ${postField}
 }`;
 
-export const latestPostQuery = `
-*[_type == "post"] | order(publishedAt desc)[0..0] {
-  _id,
-  title,
-  slug,
-  mainImage,
-  publishedAt
-}
-`;
-
 export const singlePostQuery = groq`*[_type == "Post" && slug.current == $slug][0]{
   ${postField},
   _updatedAt,

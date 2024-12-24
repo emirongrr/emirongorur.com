@@ -5,7 +5,7 @@ import { i18n } from "i18next";
 import LanguageSwitcher from "@components/LanguageSwitcher";
 import { languages } from "../../i18n/settings";
 import Image from "next/image";
-import Logo from "../../../../public/assets/xi512.png"
+import Logo from "../../../../public/assets/xi512.png";
 const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   const t = i18n.getFixedT(lng, "common");
   const data = [
@@ -25,8 +25,14 @@ const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
     <header className=" sticky top-0 text-sm py-6 md:px-16 px-6 border-b text-zinc-500 border dark:bg-black dark:border-zinc-800 border-zinc-200 z-30">
       <div className=" max-w-6xl mx-auto flex items-center justify-between">
         <Link href="/">
-            <Image src={Logo} width={35} height={35} alt="logo" className="dark:bg-white" />
-          </Link>
+          <Image
+            src={Logo}
+            width={35}
+            height={35}
+            alt="logo"
+            className="dark:bg-white"
+          />
+        </Link>
         <nav className="md:block hidden mx-auto">
           <ul className="flex items-center gap-x-8">
             {data.map((link, id) => (

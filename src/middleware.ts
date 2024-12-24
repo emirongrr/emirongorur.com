@@ -13,7 +13,6 @@ export const config = {
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Eğer URL'de /studio varsa yönlendirme yapma
   if (pathname.startsWith("/studio")) {
     return NextResponse.next();
   }
@@ -29,20 +28,19 @@ export function middleware(req: NextRequest) {
   if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language"));
   if (!lng) lng = fallbackLng;
 
-  // Eğer dil desteklenmiyorsa yönlendirme yap
   if (
     !languages.some((loc) => pathname.startsWith(`/${loc}`)) &&
     !pathname.startsWith("/_next")
   ) {
     return NextResponse.redirect(
-      new URL(`/${lng}${pathname}${req.nextUrl.search}`, req.url)
+      new URL(`/${lng}${pathname}${req.nextUrl.search}`, req.url),
     );
   }
 
   if (req.headers.has("referer")) {
     const refererUrl = new URL(req.headers.get("referer") || "");
     const lngInReferer = languages.find((l) =>
-      refererUrl.pathname.startsWith(`/${l}`)
+      refererUrl.pathname.startsWith(`/${l}`),
     );
     const response = NextResponse.next();
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
