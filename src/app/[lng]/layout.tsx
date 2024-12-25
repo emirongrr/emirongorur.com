@@ -51,8 +51,14 @@ export default async function RootLayout({
         <meta property="og:url" content={metadata.url} />
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content={metadata.description} />
-        <meta property="og:image" content="https://avatars.githubusercontent.com/u/80769968?v=4.png" />
-        <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/80769968?v=4.png" />
+        <meta
+          property="og:image"
+          content="https://avatars.githubusercontent.com/u/80769968?v=4.png"
+        />
+        <meta
+          property="twitter:image"
+          content="https://avatars.githubusercontent.com/u/80769968?v=4.png"
+        />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content={metadata.title}></meta>
         <meta property="twitter:description" content={metadata.description} />
@@ -65,7 +71,10 @@ export default async function RootLayout({
         <meta name="twitter:url" content={metadata.url} />
         <meta name="twitter:title" content={metadata.title} />
         <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/80769968?v=4.png" />
+        <meta
+          name="twitter:image"
+          content="https://avatars.githubusercontent.com/u/80769968?v=4.png"
+        />
 
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
