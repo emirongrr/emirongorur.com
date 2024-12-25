@@ -37,7 +37,7 @@ export default async function RootLayout({
   const metadata = {
     title: t("siteTitle"),
     content: t("siteContent"),
-    metadataBase: new URL("https://emirongorur.com"),
+    metadataBase: new URL("https://blog.emirongorur.com"),
   };
 
   return (
