@@ -17,6 +17,14 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
+  if (pathname.startsWith("/manifest.json")) {
+    return NextResponse.next();
+  }
+
+  if (pathname.startsWith("/sitemap.xml")) {
+    return NextResponse.next();
+  }
+
   if (pathname.indexOf("icon") > -1 || pathname.indexOf("chrome") > -1) {
     return NextResponse.next();
   }

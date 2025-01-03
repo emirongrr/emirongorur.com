@@ -16,6 +16,37 @@ const inter = Inter({
   variable: "--inter",
 });
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "Portfolio",
+      "position": 1,
+      "name": "Portfolio",
+      "item": "https://www.emirongorur.com"
+    },
+    {
+      "@type": "Blog",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://blog.emirongorur.com"
+    },
+    {
+      "@type": "Github",
+      "position": 3,
+      "name": "Github",
+      "item": "https://github.com/emirongrr"
+    },    {
+      "@type": "X",
+      "position": 3,
+      "name": "x",
+      "item": "https://x.com/emirongorur"
+    }
+  ]
+};
+
+
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
@@ -66,46 +97,23 @@ export default async function RootLayout({
     title: t("siteTitle"),
     description: t("siteContent"),
     searchEngine: t("searchEngine"),
-    url: "https://emirongorur.com",
+    url: "https://www.emirongorur.com",
     image: "https://emirongorur.com/api/og",
   };
 
   return (
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
       <Head>
-        <meta name="title" content={metadata.title} />
-        <meta name="description" content={metadata.description} />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={metadata.url} />
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content={metadata.description} />
-        <meta
-          property="og:image"
-          content="https://avatars.githubusercontent.com/u/80769968?v=4.png"
-        />
-        <meta
-          property="twitter:image"
-          content="https://avatars.githubusercontent.com/u/80769968?v=4.png"
-        />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content={metadata.title}></meta>
-        <meta property="twitter:description" content={metadata.description} />
-        <meta property="description" content={metadata.searchEngine} />
-        <meta property="og:site_name" content={metadata.title} />
-
-        <title>{metadata.title}</title>
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content={metadata.url} />
-        <meta name="twitter:title" content={metadata.title} />
-        <meta name="twitter:description" content={metadata.description} />
-        <meta
-          name="twitter:image"
-          content="https://avatars.githubusercontent.com/u/80769968?v=4.png"
+      <title>{metadata.title}</title>
+      <meta name="apple-mobile-web-app-title" content="emirongorur" />
+      <link rel="canonical" href={metadata.url} />
+      <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbSchema),
+          }}
         />
 
-        <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
