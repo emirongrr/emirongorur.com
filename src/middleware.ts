@@ -21,6 +21,10 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
+  if (pathname.startsWith("/robots.txt")) {
+    return NextResponse.next();
+  }
+
   if (pathname.startsWith("/sitemap.xml")) {
     return NextResponse.next();
   }
