@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   creator: 'Emir Öngörür',
   publisher: 'Emir Öngörür',
   description:
-    "Discover Emir Öngörür's portfolio: projects, skills, and experience in software development.",
+    "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
   openGraph: {
     title: "Emir Öngörür | Portfolio",
     description:
