@@ -23,9 +23,9 @@ const ProjectsSectionBase = async ({
       <div className="dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
         <div className="mx-auto lg:max-w-7xl flex items-start justify-start min-h-[100vh] overflow-hidden">
           <div className="flex flex-col gap-6 mt-24">
-            <h1 className="mt-24 font-incognito font-semibold tracking-tight sm:text-5xl text-3xl w-full lg:leading-[3.7rem] px-12 lg:px-12 xl:px-0">
+            <h2 className="mt-24 font-incognito font-semibold tracking-tight sm:text-5xl text-3xl w-full lg:leading-[3.7rem] px-12 lg:px-12 xl:px-0">
               {t("projectsTitle")}
-            </h1>
+            </h2>
             <p className="max-w-5xl text-base dark:text-zinc-300 text-zinc-600 leading-relaxed px-12 lg:px-12 xl:px-0">
               {t("projectsContent")}
             </p>
@@ -51,9 +51,9 @@ const ProjectsSectionBase = async ({
                         </div>
                       )}
                       <div>
-                        <h2 className="text-lg tracking-wide mb-1">
+                        <h3 className="text-lg tracking-wide mb-1">
                           {project.name}
-                        </h2>
+                        </h3>
                         <div className="text-sm dark:text-zinc-400 text-zinc-600">
                           {project.tagline}
                         </div>

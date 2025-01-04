@@ -83,9 +83,9 @@ const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
 
               {/* text */}
               <div className="flex flex-col w-full lg:w-[60%] p-6">
-                <h1 className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight basis-1/4 p-6">
+                <h2 className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight basis-1/4 p-6">
                   {t("aboutTitle")}
-                </h1>
+                </h2>
                 <p className="p-6 h-full">{t("aboutContent")}</p>
               </div>
             </section>

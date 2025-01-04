@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Head from "next/head";
 import { Metadata } from "next";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -122,6 +123,7 @@ export default async function RootLayout({
           <Navbar lng={lng} />
           {children}
           <Analytics />
+          <GoogleAnalytics gaId="G-YW4S269HQB" />
         </Providers>
       </body>
     </html>
