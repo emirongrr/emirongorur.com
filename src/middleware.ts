@@ -17,7 +17,7 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  if (pathname.startsWith("/manifest.json")) {
+  if (pathname.startsWith("/manifest.webmanifest")) {
     return NextResponse.next();
   }
 
