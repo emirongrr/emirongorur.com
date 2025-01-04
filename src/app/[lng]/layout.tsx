@@ -17,6 +17,15 @@ const inter = Inter({
   variable: "--inter",
 });
 
+const webpageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Emir Öngörür | Computer engineer, technical writer & open-source contributor",
+  "description": "An experienced software developer passionate about learning and building open-source software. I love the Ethereum ecosystem, distributed systems, math, cryptography, compilers design, philosophy, finance, and economy.",
+  "url": "https://www.emirongorur.com",
+  "mainEntityOfPage": "https://www.emirongorur.com"
+};
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -43,6 +52,12 @@ const breadcrumbSchema = {
       "position": 3,
       "name": "x",
       "item": "https://x.com/emirongorur"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Resume",
+      "item": "https://www.emirongorur.com/assets/resume.pdf"
     }
   ]
 };
@@ -111,10 +126,15 @@ export default async function RootLayout({
       <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
+            __html: JSON.stringify(webpageSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
             __html: JSON.stringify(breadcrumbSchema),
           }}
         />
-
       </Head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
