@@ -3,17 +3,18 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ["cdn.sanity.io"],
-  },async redirects() {
+  },
+  async redirects() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         has: [
           {
-            type: 'host',
-            value: 'emirongorur.com',
+            type: "host",
+            value: "emirongorur.com",
           },
         ],
-        destination: 'https://www.emirongorur.com/:path*',
+        destination: "https://www.emirongorur.com/:path*",
         permanent: true,
       },
     ];

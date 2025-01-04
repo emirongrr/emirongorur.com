@@ -9,7 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Head from "next/head";
 import { Metadata } from "next";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,58 +20,61 @@ const inter = Inter({
 const webpageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Emir Öngörür | Computer engineer, technical writer & open-source contributor",
-  "description": "An experienced software developer passionate about learning and building open-source software. I love the Ethereum ecosystem, distributed systems, math, cryptography, compilers design, philosophy, finance, and economy.",
-  "url": "https://www.emirongorur.com",
-  "mainEntityOfPage": "https://www.emirongorur.com"
+  name: "Emir Öngörür | Computer engineer, technical writer & open-source contributor",
+  description:
+    "An experienced software developer passionate about learning and building open-source software. I love the Ethereum ecosystem, distributed systems, math, cryptography, compilers design, philosophy, finance, and economy.",
+  url: "https://www.emirongorur.com",
+  mainEntityOfPage: "https://www.emirongorur.com",
 };
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement": [
+  itemListElement: [
     {
-      "@type": "Portfolio",
-      "position": 1,
-      "name": "Portfolio",
-      "item": "https://www.emirongorur.com"
-    },
-    {
-      "@type": "Blog",
-      "position": 2,
-      "name": "Blog",
-      "item": "https://blog.emirongorur.com"
-    },
-    {
-      "@type": "Github",
-      "position": 3,
-      "name": "Github",
-      "item": "https://github.com/emirongrr"
-    },    {
-      "@type": "X",
-      "position": 3,
-      "name": "x",
-      "item": "https://x.com/emirongorur"
+      "@type": "ListItem",
+      position: 1,
+      name: "Portfolio",
+      item: "https://www.emirongorur.com",
     },
     {
       "@type": "ListItem",
-      "position": 4,
-      "name": "Resume",
-      "item": "https://www.emirongorur.com/assets/resume.pdf"
-    }
-  ]
+      position: 2,
+      name: "Blog",
+      item: "https://blog.emirongorur.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Github",
+      item: "https://github.com/emirongrr",
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: "x",
+      item: "https://x.com/emirongorur",
+    },
+    {
+      "@type": "ListItem",
+      position: 5,
+      name: "Resume",
+      item: "https://www.emirongorur.com/assets/resume.pdf",
+    },
+  ],
 };
-
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 export const metadata: Metadata = {
   title: "Emir Öngörür | Portfolio",
-  description: "Discover Emir Öngörür's portfolio: projects, skills, and experience in software development.",
+  description:
+    "Discover Emir Öngörür's portfolio: projects, skills, and experience in software development.",
   openGraph: {
     title: "Emir Öngörür | Portfolio",
-    description: "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
+    description:
+      "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
     url: "https://www.emirongorur.com",
     images: [
       {
@@ -85,7 +88,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Emir Öngörür | Portfolio",
-    description: "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
+    description:
+      "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
     images: ["https://www.emirongorur.com/api/og"],
   },
   alternates: {
@@ -120,16 +124,16 @@ export default async function RootLayout({
   return (
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
       <Head>
-      <title>{metadata.title}</title>
-      <meta name="apple-mobile-web-app-title" content="emirongorur" />
-      <link rel="canonical" href={metadata.url} />
+        <title>{metadata.title}</title>
+        <meta name="apple-mobile-web-app-title" content="emirongorur" />
+        <link rel="canonical" href={metadata.url} />
       </Head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
       >
         <Providers>
           <Navbar lng={lng} />
-            <section>
+          <section>
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{
@@ -142,8 +146,8 @@ export default async function RootLayout({
                 __html: JSON.stringify(breadcrumbSchema),
               }}
             />
-              {children}
-            </section>
+            {children}
+          </section>
           <Analytics />
           <GoogleAnalytics gaId="G-YW4S269HQB" />
         </Providers>
