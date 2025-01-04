@@ -133,7 +133,6 @@ export default async function RootLayout({
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
       <Head>
         <title>{metadata.title}</title>
-        <meta name="apple-mobile-web-app-title" content="emirongorur" />
       </Head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
