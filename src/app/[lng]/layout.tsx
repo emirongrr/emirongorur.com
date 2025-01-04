@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   description: "Discover Emir Öngörür's portfolio: projects, skills, and experience in software development.",
   openGraph: {
     title: "Emir Öngörür | Portfolio",
-    description: "Discover Emir Öngörür's portfolio: projects, skills, and experience in software development.",
+    description: "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
     url: "https://www.emirongorur.com",
     images: [
       {
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Emir Öngörür | Portfolio",
-    description: "Discover Emir Öngörür's portfolio: projects, skills, and experience in software development.",
+    description: "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
     images: ["https://www.emirongorur.com/api/og"],
   },
   alternates: {
@@ -123,25 +123,27 @@ export default async function RootLayout({
       <title>{metadata.title}</title>
       <meta name="apple-mobile-web-app-title" content="emirongorur" />
       <link rel="canonical" href={metadata.url} />
-      <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(webpageSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbSchema),
-          }}
-        />
       </Head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
       >
         <Providers>
           <Navbar lng={lng} />
-          {children}
+            <section>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(webpageSchema),
+              }}
+            />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(breadcrumbSchema),
+              }}
+            />
+              {children}
+            </section>
           <Analytics />
           <GoogleAnalytics gaId="G-YW4S269HQB" />
         </Providers>
