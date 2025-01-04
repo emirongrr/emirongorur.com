@@ -7,7 +7,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/(.*)",
+        source: "/:path*",
         has: [
           {
             type: "host",
@@ -15,6 +15,16 @@ const nextConfig = {
           },
         ],
         destination: "https://www.emirongorur.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/",
+        destination: "/en",
+        permanent: true,
+      },
+      {
+        source: "/en/",
+        destination: "/en",
         permanent: true,
       },
     ];
