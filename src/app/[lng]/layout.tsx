@@ -69,6 +69,9 @@ export async function generateStaticParams() {
 }
 export const metadata: Metadata = {
   title: "Emir Öngörür | Portfolio",
+  authors: [{ name: "Emir Öngörür" }],
+  creator: 'Emir Öngörür',
+  publisher: 'Emir Öngörür',
   description:
     "Discover Emir Öngörür's portfolio: projects, skills, and experience in software development.",
   openGraph: {
@@ -85,6 +88,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  generator: 'Next.js',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['emir öngörür', "emir ongorur",'code', 'javascript', 'react', 'next.js', 'web dev', 'python',"rust","go","blockchain","ethereum","open-source","technical writer","blog"],
   twitter: {
     card: "summary_large_image",
     title: "Emir Öngörür | Portfolio",
@@ -93,11 +99,13 @@ export const metadata: Metadata = {
     images: ["https://www.emirongorur.com/api/og"],
   },
   alternates: {
+    canonical:"https://www.emirongorur.com",
     languages: {
       en: "https://www.emirongorur.com/en",
       tr: "https://www.emirongorur.com/tr",
     },
   },
+  metadataBase: new URL('https://www.emirongorur.com'),
 };
 export default async function RootLayout({
   children,
@@ -126,7 +134,6 @@ export default async function RootLayout({
       <Head>
         <title>{metadata.title}</title>
         <meta name="apple-mobile-web-app-title" content="emirongorur" />
-        <link rel="canonical" href={metadata.url} />
       </Head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
