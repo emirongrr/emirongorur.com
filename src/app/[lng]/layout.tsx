@@ -4,7 +4,7 @@ import { useTranslation } from "../i18n";
 import { Navbar } from "@components/Navbar";
 import { Inter } from "next/font/google";
 import { Providers } from "../provider";
-import { gitlabmono, incognito } from "../assets/fonts/font";
+import { gitlabmono, incognito } from "../../../public/fonts/font";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Head from "next/head";
@@ -149,6 +149,8 @@ export default async function RootLayout({
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
       <Head>
         <title>{metadata.title}</title>
+        <link rel="preload" href="/path/to/incognito-font.woff2" as="font" type="font/woff2" />
+        <link rel="preload" href="/path/to/inter-font.woff2" as="font" type="font/woff2" />
       </Head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}

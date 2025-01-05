@@ -15,11 +15,8 @@ export default function Home({
 
   return (
     <section className="min-h-3xl">
-      {/* home */}
       <LandingSection lng={lng} />
-      {/* about me */}
       <AboutMeSection lng={lng} />
-      {/* projects */}
       <ProjectsSection lng={lng} />
     </section>
   );

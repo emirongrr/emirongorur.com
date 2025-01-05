@@ -82,6 +82,7 @@ export default function MobileMenu() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Go to ${link.title}`}
                   className="flex font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light items-center gap-x-2 group dark:hover:text-zinc-600 hover:text-zinc-900 p-6"
                 >
                   <link.icon
@@ -96,6 +97,7 @@ export default function MobileMenu() {
                   href={link.href}
                   className="flex items-center gap-x-2 font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light p-6 group"
                   onClick={onToggleNav}
+                  aria-label={`Go to ${link.title}`}
                 >
                   <link.icon
                     className="text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300"

@@ -29,6 +29,9 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     <div className=" relative inline-block text-left">
       <button
         onClick={toggleMenu}
+        aria-label="Language switcher"
+        aria-haspopup="true"
+        aria-expanded={isOpen ? "true" : "false"}
         className="inline-flex justify-center w-full rounded-md border text-zinc-400 dark:border-zinc-800 border-gray-300 shadow-sm px-4 py-2 dark:bg-black text-lg font-medium hover:bg-gray-50 focus:outline-none"
       >
         <IoLanguage />
@@ -45,6 +48,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                     ? "bg-zinc-700 text-zinc-300"
                     : "text-white hover:bg-zinc-800"
                 }`}
+                aria-label={`Switch to ${language.toUpperCase()}`}
               >
                 {language.toUpperCase()}
               </button>
