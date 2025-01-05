@@ -16,7 +16,7 @@ const SectionHeading = ({
       className={`flex items-center gap-1.5 text-xl font-medium text-neutral-800 dark:text-neutral-300 px-12 ${className}`}
     >
       {icon && <>{icon}</>}
-      <h2 className="capitalize">{title}</h2>
+      <h4 className="capitalize">{title}</h4>
     </div>
   );
 };

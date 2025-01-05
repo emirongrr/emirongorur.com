@@ -1,25 +1,10 @@
 "use client";
 import SkillsSection from "@components/SkillsSection";
-import { Metadata } from "next";
 import Image from "next/image";
 import { BiEnvelope, BiLinkExternal, BiSolidDownload } from "react-icons/bi";
 import { i18n } from "i18next";
 import Link from "next/link";
 import { Slide } from "@components/Animation/Slide";
-
-export const metadata: Metadata = {
-  title: "About | Emir Öngörür",
-  metadataBase: new URL("https://emirongorur.com/about"),
-  description:
-    "Learn more about my skills, experience and technical background",
-  openGraph: {
-    title: "About | Emir Öngörür",
-    url: "https://emirongorur.com/about",
-    description:
-      "Learn more about my skills, experience and technical background",
-    images: "https://avatars.githubusercontent.com/u/80769968?v=4",
-  },
-};
 
 const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   const t = i18n.getFixedT(lng, "about");
@@ -41,10 +26,10 @@ const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
                     width={500}
                     height={500}
                     quality={100}
-                    alt={"profile image"}
+                    alt={"Emir Öngörür profile"}
                     placeholder="blur"
                     blurDataURL={"data.profileImage.lqip"}
-                    priority
+                    loading="lazy"
                   />
 
                   <div className="flex flex-col text-center gap-y-4 mt-4">
@@ -71,8 +56,9 @@ const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
                       </a>
                     </div>
                     <a
-                      href={`mailto:info@emirongorur.com`}
+                      href="mailto:&#105;&#110;&#102;&#111;&#64;&#101;&#109;&#105;&#114;&#111;&#110;&#103;&#111;&#114;&#117;&#114;&#46;&#99;&#111;&#109;"
                       className="flex items-center gap-x-2 hover:text-primary-color"
+                      aria-label="email me"
                     >
                       <BiEnvelope className="text-lg" />
                       {"info@emirongorur.com"}

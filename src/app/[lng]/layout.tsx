@@ -70,8 +70,8 @@ export async function generateStaticParams() {
 export const metadata: Metadata = {
   title: "Emir Öngörür | Portfolio",
   authors: [{ name: "Emir Öngörür" }],
-  creator: 'Emir Öngörür',
-  publisher: 'Emir Öngörür',
+  creator: "Emir Öngörür",
+  publisher: "Emir Öngörür",
   description:
     "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
   openGraph: {
@@ -88,9 +88,25 @@ export const metadata: Metadata = {
       },
     ],
   },
-  generator: 'Next.js',
-  referrer: 'origin-when-cross-origin',
-  keywords: ['emir öngörür', "emir ongorur",'code', 'javascript', 'react', 'next.js', 'web dev', 'python',"rust","go","blockchain","ethereum","open-source","technical writer","blog"],
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  keywords: [
+    "emir öngörür",
+    "emir ongorur",
+    "code",
+    "javascript",
+    "react",
+    "next.js",
+    "web dev",
+    "python",
+    "rust",
+    "go",
+    "blockchain",
+    "ethereum",
+    "open-source",
+    "technical writer",
+    "blog",
+  ],
   twitter: {
     card: "summary_large_image",
     title: "Emir Öngörür | Portfolio",
@@ -99,13 +115,13 @@ export const metadata: Metadata = {
     images: ["https://www.emirongorur.com/api/og"],
   },
   alternates: {
-    canonical:"https://www.emirongorur.com",
+    canonical: "https://www.emirongorur.com",
     languages: {
       en: "https://www.emirongorur.com/en",
       tr: "https://www.emirongorur.com/tr",
     },
   },
-  metadataBase: new URL('https://www.emirongorur.com'),
+  metadataBase: new URL("https://www.emirongorur.com"),
 };
 export default async function RootLayout({
   children,

@@ -22,14 +22,15 @@ html {
     4px 0 0 #4405fc;
   animation: glitch 3s ease-in reverse infinite;
 }
-
 .gradientBg {
   width: 100%;
   background: linear-gradient(-45deg, #2588a1, #63e, #000);
-  background-size: 400% 400%;
-  animation: efect 60s ease infinite;
+  background-size: 200% 200%;
+  animation: effect 30s ease infinite;
+  will-change: background-position;
 }
-@keyframes efect {
+
+@keyframes effect {
   0% {
     background-position: 0% 50%;
   }

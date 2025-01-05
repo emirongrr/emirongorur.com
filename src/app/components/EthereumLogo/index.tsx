@@ -72,7 +72,6 @@ const EthereumLogo: React.FC = () => {
     const ethMesh = new THREE.Mesh(geometry, material);
     scene.add(ethMesh);
 
-    // Animation
     const animate = () => {
       requestAnimationFrame(animate);
 
