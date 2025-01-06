@@ -7,7 +7,6 @@ import { Providers } from "../provider";
 import { gitlabmono, incognito } from "../../../public/fonts/font";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import Head from "next/head";
 import { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -147,14 +146,12 @@ export default async function RootLayout({
 
   return (
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
-      <Head>
+      <head>
         <title>{metadata.title}</title>
-        <link rel="preload" href="/path/to/incognito-font.woff2" as="font" type="font/woff2" />
-        <link rel="preload" href="/path/to/inter-font.woff2" as="font" type="font/woff2" />
-      </Head>
+      </head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
-      >
+        >
         <Providers>
           <Navbar lng={lng} />
           <section>

@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,9 +22,14 @@
       }
     ],
     "paths": {
-      "@components/*": ["./src/app/components/*"],
-      "@assets/*": ["./public/assets/*"]
-    }
+      "@components/*": [
+        "./src/app/components/*"
+      ],
+      "@assets/*": [
+        "./public/assets/*"
+      ]
+    },
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
@@ -31,5 +40,7 @@
     "src/app/components/LandingSection",
     "src/app/middleware.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
