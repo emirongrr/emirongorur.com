@@ -8,20 +8,21 @@ html {
 
 @font-face {
   font-family: "Incognito";
-  src: url("/fonts/incognito_bold.woff2") format("woff2"),
-       url("/fonts/incognito_bold.woff") format("woff");
+  src:
+    url("/fonts/incognito_bold.woff2") format("woff2"),
+    url("/fonts/incognito_bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Gitlab Mono";
-  src: url("/fonts/gitlab-mono.woff2") format("woff2"),
-       url("/fonts/gitlab-mono.woff") format("woff");
+  src:
+    url("/fonts/gitlab-mono.woff2") format("woff2"),
+    url("/fonts/gitlab-mono.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
-
 
 .tittle-effect {
   will-change: transform;
@@ -70,6 +71,6 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--incognito), "Inter", sans-serif; 
-  font-display: swap; 
+  font-family: var(--incognito), "Inter", sans-serif;
+  font-display: swap;
 }

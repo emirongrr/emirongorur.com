@@ -151,7 +151,7 @@ export default async function RootLayout({
       </head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
-        >
+      >
         <Providers>
           <Navbar lng={lng} />
           <section>
