@@ -1,28 +1,28 @@
 import { BsFillBootstrapFill } from "react-icons/bs";
-import {
-  SiCss3,
-  SiExpress,
-  SiFirebase,
-  SiGraphql,
-  SiJavascript,
-  SiMui,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiNuxtdotjs,
-  SiPhp,
-  SiPrisma,
-  SiReact,
-  SiRedux,
-  SiSocketdotio,
-  SiStyledcomponents,
-  SiTailwindcss,
-  SiTypescript,
-  SiWebpack,
-  SiRust,
-  SiEthereum,
-  SiDocker,
-  SiPython,
-} from "react-icons/si";
+import { SiCss3 } from "react-icons/si";
+import { SiExpress } from "react-icons/si";
+import { SiFirebase } from "react-icons/si";
+import { SiGraphql } from "react-icons/si";
+import { SiJavascript } from "react-icons/si";
+import { SiMui } from "react-icons/si";
+import { SiNextdotjs } from "react-icons/si";
+import { SiNodedotjs } from "react-icons/si";
+import { SiNuxtdotjs } from "react-icons/si";
+import { SiPhp } from "react-icons/si";
+import { SiPrisma } from "react-icons/si";
+import { SiReact } from "react-icons/si";
+import { SiRedux } from "react-icons/si";
+import { SiSocketdotio } from "react-icons/si";
+import { SiStyledcomponents } from "react-icons/si";
+import { SiTailwindcss } from "react-icons/si";
+import { SiTypescript } from "react-icons/si";
+import { SiWebpack } from "react-icons/si";
+import { SiRust } from "react-icons/si";
+import { SiEthereum } from "react-icons/si";
+import { SiDocker } from "react-icons/si";
+import { SiPython } from "react-icons/si";
+
+
 
 export type stacksProps = {
   [key: string]: JSX.Element;

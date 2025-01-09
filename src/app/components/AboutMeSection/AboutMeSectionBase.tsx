@@ -1,7 +1,9 @@
 "use client";
 import SkillsSection from "@components/SkillsSection";
 import Image from "next/image";
-import { BiEnvelope, BiLinkExternal, BiSolidDownload } from "react-icons/bi";
+import { BiEnvelope } from "react-icons/bi";
+import { BiLinkExternal } from "react-icons/bi";
+import { BiSolidDownload } from "react-icons/bi";
 import { i18n } from "i18next";
 import Link from "next/link";
 import { Slide } from "@components/Animation/Slide";

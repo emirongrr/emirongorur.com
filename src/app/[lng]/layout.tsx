@@ -8,7 +8,6 @@ import { gitlabmono, incognito } from "../../../public/fonts/font";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { Metadata } from "next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -68,6 +67,7 @@ export async function generateStaticParams() {
 }
 export const metadata: Metadata = {
   title: "Emir Öngörür | Portfolio",
+  icons: "/icons/favicon.ico",
   authors: [{ name: "Emir Öngörür" }],
   creator: "Emir Öngörür",
   publisher: "Emir Öngörür",
@@ -170,7 +170,6 @@ export default async function RootLayout({
             {children}
           </section>
           <Analytics />
-          <GoogleAnalytics gaId="G-YW4S269HQB" />
         </Providers>
       </body>
     </html>

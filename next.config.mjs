@@ -1,8 +1,16 @@
+import withBundleAnalyzer from '@next/bundle-analyzer';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
   images: {
     domains: ["cdn.sanity.io"],
+  },
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      config.optimization.usedExports = true;
+    }
+    return config;
   },
   async redirects() {
     return [
@@ -33,4 +41,6 @@ const nextConfig = {
   productionBrowserSourceMaps: true,
 };
 
-export default nextConfig;
+export default withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',  
+})(nextConfig);
