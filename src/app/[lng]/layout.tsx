@@ -1,6 +1,5 @@
 import { dir } from "i18next";
 import { languages, fallbackLng } from "../i18n/settings";
-import { useTranslation } from "../i18n";
 import { Navbar } from "@components/Navbar";
 import { Inter } from "next/font/google";
 import { Providers } from "../provider";
