@@ -42,5 +42,5 @@ const nextConfig = {
 };
 
 export default withBundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',  
+  enabled: process.env.ANALYZE === 'false',  
 })(nextConfig);

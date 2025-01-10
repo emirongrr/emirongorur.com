@@ -67,7 +67,6 @@ export async function generateStaticParams() {
 }
 export const metadata: Metadata = {
   title: "Emir Öngörür | Portfolio",
-  icons: "/icons/favicon.ico",
   authors: [{ name: "Emir Öngörür" }],
   creator: "Emir Öngörür",
   publisher: "Emir Öngörür",
@@ -113,14 +112,14 @@ export const metadata: Metadata = {
       "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
     images: ["https://www.emirongorur.com/api/og"],
   },
+  metadataBase: new URL("https://www.emirongorur.com"),
   alternates: {
-    canonical: "https://www.emirongorur.com",
+    canonical: "/",
     languages: {
-      en: "https://www.emirongorur.com/en",
-      tr: "https://www.emirongorur.com/tr",
+      'en': "/en",
+      'tr': "/tr",
     },
   },
-  metadataBase: new URL("https://www.emirongorur.com"),
 };
 export default async function RootLayout({
   children,
@@ -148,7 +147,7 @@ export default async function RootLayout({
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
       <head>
         <title>{metadata.title}</title>
-        <link rel="icon" href="/icons/favicon.ico" sizes="any" />
+        
       </head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
