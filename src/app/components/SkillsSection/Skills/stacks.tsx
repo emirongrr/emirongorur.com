@@ -22,8 +22,6 @@ import { SiEthereum } from "react-icons/si";
 import { SiDocker } from "react-icons/si";
 import { SiPython } from "react-icons/si";
 
-
-
 export type stacksProps = {
   [key: string]: JSX.Element;
 };

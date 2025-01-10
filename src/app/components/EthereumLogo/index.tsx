@@ -1,6 +1,18 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import { Scene, PerspectiveCamera, WebGLRenderer, DirectionalLight, AmbientLight, BufferGeometry, Vector3, MeshStandardMaterial, Mesh, Clock, Color } from "three";
+import {
+  Scene,
+  PerspectiveCamera,
+  WebGLRenderer,
+  DirectionalLight,
+  AmbientLight,
+  BufferGeometry,
+  Vector3,
+  MeshStandardMaterial,
+  Mesh,
+  Clock,
+  Color,
+} from "three";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 
 const EthereumLogo: React.FC = () => {

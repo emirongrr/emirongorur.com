@@ -116,9 +116,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
     languages: {
-      'en': "/en",
-      'tr': "/tr",
+      en: "/en",
+      tr: "/tr",
     },
+  },
+  other: {
+    "apple-mobile-web-app-title": "Emir Öngörür - Portfolio",
   },
 };
 export default async function RootLayout({
@@ -133,40 +136,11 @@ export default async function RootLayout({
   let { lng } = params;
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
 
-  const { t } = await useTranslation(lng, "common");
-
-  const metadata = {
-    title: t("siteTitle"),
-    description: t("siteContent"),
-    searchEngine: t("searchEngine"),
-    url: "https://www.emirongorur.com",
-    image: "https://emirongorur.com/api/og",
-  };
-
   return (
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
       <head>
-        <title>{metadata.title}</title>
-        <link rel="manifest" href="/manifest.webmanifest"></link>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" sizes="any" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png" />
-        <link rel="apple-touch-icon" sizes="any" href="/apple-icon.png" />
-
-        <link
-  rel="icon"
-  href="/icon?<generated>"
-  type="image/<generated>"
-  sizes="<generated>"
-/>
-<link
-  rel="apple-touch-icon"
-  href="/apple-icon?<generated>"
-  type="image/<generated>"
-  sizes="<generated>"
-/>
-        
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </head>
       <body
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
