@@ -14,6 +14,11 @@
       "source": "/tr/:path*",
       "destination": "/tr/:path*",
       "permanent": true
+    },
+    {
+      "source": "/:path((?!tr|en).*)",
+      "destination": "/en",
+      "permanent": true
     }
   ]
 }
