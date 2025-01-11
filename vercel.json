@@ -2,22 +2,22 @@
     "redirects": [
       {
         "source": "/",
-        "destination": "/en/",
+        "destination": "/en",
         "permanent": true
       },
       {
         "source": "/en",
-        "destination": "/en/",
+        "destination": "/en",
         "permanent": true
       },
       {
         "source": "/tr",
-        "destination": "/tr/",
+        "destination": "/tr",
         "permanent": true
       },
       {
         "source": "/:path(.*)",
-        "destination": "/en/",
+        "destination": "/en",
         "permanent": true
       }
     ]
