@@ -6,18 +6,8 @@
         "permanent": true
       },
       {
-        "source": "/en",
-        "destination": "/en",
-        "permanent": true
-      },
-      {
         "source": "/tr",
         "destination": "/tr",
-        "permanent": true
-      },
-      {
-        "source": "/:path(.*)",
-        "destination": "/en",
         "permanent": true
       }
     ]
