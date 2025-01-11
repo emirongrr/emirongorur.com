@@ -1,15 +1,19 @@
 {
-    "redirects": [
-      {
-        "source": "/",
-        "destination": "/en",
-        "permanent": true
-      },
-      {
-        "source": "/tr",
-        "destination": "/tr",
-        "permanent": true
-      }
-    ]
-  }
-  
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/en",
+      "permanent": true
+    },
+    {
+      "source": "/en/:path*",
+      "destination": "/en/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/tr/:path*",
+      "destination": "/tr/:path*",
+      "permanent": true
+    }
+  ]
+}
