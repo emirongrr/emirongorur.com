@@ -9,7 +9,6 @@ type ImageProp = {
   alt: string;
 };
 
-
 export default function ImageComponent({ src, alt }: ImageProp) {
   const imageUrl = urlFor(src).url();
   const blurUrl = urlFor(src).blur(10).quality(10).url();

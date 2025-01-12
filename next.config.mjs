@@ -2,7 +2,7 @@
 const nextConfig = {
   swcMinify: true,
   images: {
-    domains: ["cdn.sanity.io","emirongorur.my.canva.site"],
+    domains: ["cdn.sanity.io", "emirongorur.my.canva.site"],
   },
 };
 

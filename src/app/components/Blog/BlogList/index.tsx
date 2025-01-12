@@ -14,15 +14,14 @@ import { PortableTextBlock } from "sanity";
 import { NextPage } from "next";
 
 type Props = {
-  lng: string; 
+  lng: string;
 };
 
-const BlogListNew:NextPage<Props> = ({ lng }) => {
+const BlogListNew: NextPage<Props> = ({ lng }) => {
   const [posts, setPosts] = useState<PostType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  console.log(lng,"burası")
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -41,7 +40,7 @@ const BlogListNew:NextPage<Props> = ({ lng }) => {
 
     fetchPosts();
   }, []);
-  
+
   const filteredPosts = posts.filter(
     (post: PostType) =>
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -55,7 +54,6 @@ const BlogListNew:NextPage<Props> = ({ lng }) => {
         return false;
       }),
   );
-  
 
   const renderEmptyState = () =>
     !isLoading &&

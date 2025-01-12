@@ -10,8 +10,8 @@ const FallBackImage: React.FC = () => {
           src="https://emirongorur.my.canva.site/blog/media/41b38cd851dfff6a9440981b275d8e7e.png"
           alt="Background"
           className="w-full h-full object-cover"
-          width={600}  
-          height={400} 
+          width={600}
+          height={400}
         />
       </div>
 
@@ -21,8 +21,8 @@ const FallBackImage: React.FC = () => {
           src="https://emirongorur.my.canva.site/blog/media/250f9a1f1e3074758f163d5e749419d6.png"
           alt="Foreground Image 1"
           className="w-full h-full object-cover"
-          width={600}  
-          height={400} 
+          width={600}
+          height={400}
         />
       </div>
       <div className="absolute w-[225px] h-[196px] left-[152px] top-[-131px]">
@@ -30,8 +30,8 @@ const FallBackImage: React.FC = () => {
           src="https://emirongorur.my.canva.site/blog/media/c3f4eabfa6e1f3748cc169ac8fbc01d2.png"
           alt="Foreground Image 2"
           className="w-full h-full object-cover"
-          width={600}  
-          height={400} 
+          width={600}
+          height={400}
         />
       </div>
       <div className="absolute w-[467px] h-[384px] right-[160px] top-[-192px]">
@@ -39,8 +39,8 @@ const FallBackImage: React.FC = () => {
           src="https://emirongorur.my.canva.site/blog/media/250f9a1f1e3074758f163d5e749419d6.png"
           alt="Foreground Image 3"
           className="w-full h-full object-cover"
-          width={600}  
-          height={400} 
+          width={600}
+          height={400}
         />
       </div>
       <div className="absolute w-[220px] h-[188px] left-[214px] bottom-[86px]">
@@ -48,8 +48,8 @@ const FallBackImage: React.FC = () => {
           src="https://emirongorur.my.canva.site/blog/media/b1f66fa3c2df77f2da538dadf7ea2330.png"
           alt="Foreground Image 4"
           className="w-full h-full object-cover"
-          width={600}  
-          height={400} 
+          width={600}
+          height={400}
         />
       </div>
 

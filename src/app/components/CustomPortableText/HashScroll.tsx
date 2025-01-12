@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 type Props = {
-  text: React.ReactNode; 
-  event?: React.MouseEventHandler<HTMLAnchorElement>; 
+  text: React.ReactNode;
+  event?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
 export const slugify = (id: string): string => {
@@ -14,17 +14,14 @@ export const slugify = (id: string): string => {
       .replaceAll(/--+/g, "-")
       .replace(/^-|-$/g, "");
   }
-  return ""; 
+  return "";
 };
 
 export default function HashScroll({ text, event }: Props) {
   const slug = slugify(text?.toString() ?? "");
 
   return (
-    <Link
-      onClick={event}
-      href={`#${slug}`}
-    >
+    <Link onClick={event} href={`#${slug}`}>
       {text}
     </Link>
   );

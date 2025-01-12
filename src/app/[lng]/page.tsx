@@ -4,12 +4,12 @@ import BlogListNew from "@components/Blog/BlogList";
 
 type Props = {
   params: {
-    lng: string; 
+    lng: string;
   };
 };
 
 const BlogPage: NextPage<Props> = ({ params }) => {
-  const { lng } = params; 
+  const { lng } = params;
 
   if (!lng) {
     return <div>Language not found</div>;

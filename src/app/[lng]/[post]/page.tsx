@@ -29,6 +29,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.post;
   const lng = params.lng;
+
   const post: PostType = await sanityFetch({
     query: singlePostQuery,
     tags: ["Post"],
@@ -39,10 +40,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     notFound();
   }
 
-
   const coverImageUrl = post.coverImage?.image
     ? urlFor(post.coverImage.image).width(680).height(340).url()
-    : "https://emirongorur.my.canva.site/blog";
+    : "https://blog.emirongorur.com/api/og";
 
   return {
     title: `${post.title}`,

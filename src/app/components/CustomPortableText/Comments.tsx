@@ -2,10 +2,7 @@
 
 import { useTheme } from "next-themes";
 import Giscus from "@giscus/react";
-import {
-  giscusCategoryId,
-  giscusRepoId,
-} from "../../../sanity/env";
+import { giscusCategoryId, giscusRepoId } from "../../../sanity/env";
 
 export default function Comments() {
   const theme = useTheme();
