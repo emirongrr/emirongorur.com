@@ -60,7 +60,7 @@ const BlogListNew: NextPage<Props> = ({ lng }) => {
     filteredPosts.length === 0 && <EmptyState message="No Post Found." />;
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-10" lang={lng}>
       <BlogFeaturedSection />
 
       <div className="space-y-5">
