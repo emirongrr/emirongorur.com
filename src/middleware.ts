@@ -12,11 +12,24 @@ export const config = {
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
-
   if (pathname.startsWith("/studio")) {
     return NextResponse.next();
   }
 
+  if (pathname.startsWith("/fonts")) {
+    return NextResponse.next();
+  }
+  if (pathname.startsWith("/manifest.webmanifest")) {
+    return NextResponse.next();
+  }
+
+  if (pathname.startsWith("/robots.txt")) {
+    return NextResponse.next();
+  }
+
+  if (pathname.startsWith("/sitemap.xml")) {
+    return NextResponse.next();
+  }
   if (pathname.indexOf("icon") > -1 || pathname.indexOf("chrome") > -1) {
     return NextResponse.next();
   }
