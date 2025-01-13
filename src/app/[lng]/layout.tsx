@@ -156,7 +156,6 @@ export default async function RootLayout({
                 __html: JSON.stringify(breadcrumbSchema),
               }}
             />
-            {children}
           </section>
           {children}
           <Analytics />
