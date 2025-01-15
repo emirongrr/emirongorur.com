@@ -5,7 +5,7 @@ import { i18n } from "i18next";
 import LanguageSwitcher from "@components/LanguageSwitcher";
 import { languages } from "../../i18n/settings";
 import Image from "next/image";
-import Logo from "../../../../public/assets/xi512.png";
+import Logo from "../../../../public/assets/icon-512x512.png";
 const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   const t = i18n.getFixedT(lng, "common");
   const data = [
@@ -31,6 +31,7 @@ const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
             height={35}
             alt="logo"
             className="dark:bg-white"
+            priority
           />
         </Link>
         <nav className="md:block hidden mx-auto">
