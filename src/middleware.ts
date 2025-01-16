@@ -11,56 +11,37 @@ export const config = {
 };
 
 export function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl;
-
-  if (pathname.startsWith("/studio")) {
-    return NextResponse.next();
-  }
-
-  if (pathname.startsWith("/fonts")) {
-    return NextResponse.next();
-  }
-  if (pathname.startsWith("/manifest.webmanifest")) {
-    return NextResponse.next();
-  }
-
-  if (pathname.startsWith("/robots.txt")) {
-    return NextResponse.next();
-  }
-
-  if (pathname.startsWith("/sitemap.xml")) {
-    return NextResponse.next();
-  }
-
-  if (pathname.indexOf("icon") > -1 || pathname.indexOf("chrome") > -1) {
-    return NextResponse.next();
-  }
-
-  let lng: string | undefined | null;
-  if (req.cookies.has(cookieName)) {
-    lng = acceptLanguage.get(req.cookies.get(cookieName)?.value);
-  }
-  if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language"));
-  if (!lng) lng = fallbackLng;
+  const { pathname, searchParams } = req.nextUrl;
 
   if (
-    !languages.some((loc) => pathname.startsWith(`/${loc}`)) &&
-    !pathname.startsWith("/_next")
+    pathname.startsWith("/studio") ||
+    pathname.startsWith("/fonts") ||
+    pathname.startsWith("/manifest.webmanifest") ||
+    pathname.startsWith("/robots.txt") ||
+    pathname.startsWith("/sitemap.xml") ||
+    pathname.includes("icon") ||
+    pathname.includes("chrome")
   ) {
-    return NextResponse.redirect(
-      new URL(`/${lng}${pathname}${req.nextUrl.search}`, req.url),
-    );
+    return NextResponse.next();
   }
 
-  if (req.headers.has("referer")) {
-    const refererUrl = new URL(req.headers.get("referer") || "");
-    const lngInReferer = languages.find((l) =>
-      refererUrl.pathname.startsWith(`/${l}`),
-    );
-    const response = NextResponse.next();
-    if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
-    return response;
+  let lng = req.cookies.get(cookieName)?.value || undefined;
+
+  if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language") || "") || undefined;
+
+  if (!lng) lng = fallbackLng;
+
+  const isAlreadyCorrectLanguage = languages.some((loc) =>
+    pathname.startsWith(`/${loc}`)
+  );
+
+  if (isAlreadyCorrectLanguage) {
+    return NextResponse.next(); 
   }
 
-  return NextResponse.next();
+  const redirectPathname = `/${lng}${pathname}`.replace(/\/$/, "");
+  const redirectUrl = new URL(redirectPathname, req.url);
+  redirectUrl.search = searchParams.toString(); 
+
+  return NextResponse.redirect(redirectUrl, 308);
 }

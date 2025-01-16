@@ -1,5 +1,3 @@
-import withBundleAnalyzer from "@next/bundle-analyzer";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   swcMinify: true,
@@ -10,6 +8,4 @@ const nextConfig = {
   productionBrowserSourceMaps: true,
 };
 
-export default withBundleAnalyzer({
-  enabled: process.env.ANALYZE === "false",
-})(nextConfig);
+export default nextConfig;

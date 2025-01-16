@@ -139,6 +139,7 @@ export default async function RootLayout({
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico"></link>
         <link rel="shortcut icon" href="/favicon.ico" />
       </head>
       <body
