@@ -16,7 +16,6 @@ import { CustomPortableText } from "@components/CustomPortableText/CustomPortabl
 import FeaturedPosts from "@components/Blog/FeaturedPosts/featuredPosts";
 import Comments from "@components/CustomPortableText/Comments";
 import SharePost from "@components/Blog/SharePost/SharePost";
-import FallBackImage from "@components/FallbackImage/fallBackImage";
 import { TbRewindBackward10 } from "react-icons/tb";
 
 type Props = {
@@ -149,7 +148,15 @@ export default async function Post({ params }: Props) {
                   blurDataURL={post.coverImage?.lqip || ""}
                 />
               ) : (
-                <FallBackImage />
+                <Image
+                className="rounded-xl border dark:border-zinc-800 border-zinc-100 object-cover"
+                layout="fill"
+                src="https://blog.emirongorur.com/api/og"
+                alt="emir ongorur blog"
+                quality={100}
+                placeholder={post.coverImage?.lqip ? `blur` : "empty"}
+                blurDataURL={post.coverImage?.lqip || ""}
+              />
               )}
             </div>
 

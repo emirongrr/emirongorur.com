@@ -9,31 +9,9 @@ export const table = defineType({
   icon: LuTable,
   fields: [
     defineField({
-      name: "rows",
-      title: "Rows",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          fields: [
-            defineField({
-              name: "column1",
-              title: "Column 1",
-              type: "string",
-            }),
-            defineField({
-              name: "column2",
-              title: "Column 2",
-              type: "string",
-            }),
-            defineField({
-              name: "column3",
-              title: "Column 3",
-              type: "string",
-            }),
-          ],
-        },
-      ],
+      name: "table",
+      title: "Table",
+      type: "table",
     }),
     defineField({
       name: "caption",
@@ -44,7 +22,7 @@ export const table = defineType({
   ],
   preview: {
     select: {
-      table: "rows",
+      table: "table",
       caption: "caption",
     },
   },

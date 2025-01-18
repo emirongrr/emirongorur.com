@@ -3,34 +3,16 @@ import Link from "next/link";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import {
-  HiBeaker,
   HiBookmarkAlt,
-  HiHome,
   HiOutlineX,
-  HiUser,
 } from "react-icons/hi";
 
 export default function MobileMenu() {
   const [navShow, setNavShow] = useState(false);
   const data = [
     {
-      title: "Home",
-      href: "#home",
-      icon: HiHome,
-    },
-    {
       title: "About",
-      href: "#about",
-      icon: HiUser,
-    },
-    {
-      title: "Projects",
-      href: "#projects",
-      icon: HiBeaker,
-    },
-    {
-      title: "Blog",
-      href: "https://blog.emirongorur.com",
+      href: "https://www.emirongorur.com",
       icon: HiBookmarkAlt,
       external: true,
     },

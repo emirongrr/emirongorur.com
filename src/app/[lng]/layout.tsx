@@ -3,7 +3,6 @@ import { languages, fallbackLng } from "../i18n/settings";
 import { Navbar } from "@components/Navbar";
 import { Inter } from "next/font/google";
 import { Providers } from "../provider";
-import { gitlabmono, incognito } from "../assets/fonts/font";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { Metadata } from "next";
@@ -70,11 +69,11 @@ export const metadata: Metadata = {
   creator: "Emir Öngörür",
   publisher: "Emir Öngörür",
   description:
-    "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
+    "Discover Emir Öngörür's blog projects, skills, and experience in software development.",
   openGraph: {
     title: "Emir Öngörür | Blog",
     description:
-      "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
+      "Discover Emir Öngörür's blog projects, skills, and experience in software development.",
     url: "https://blog.emirongorur.com",
     images: [
       {
@@ -109,7 +108,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Emir Öngörür | Blog",
     description:
-      "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
+      "Discover Emir Öngörür's blog projects, skills, and experience in software development.",
     images: ["https://blog.emirongorur.com/api/og"],
   },
   metadataBase: new URL("https://blog.emirongorur.com"),
@@ -139,7 +138,7 @@ export default async function RootLayout({
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
       </head>
       <body
-        className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
+        className={`${inter.className}  dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
       >
         <Providers>
           <Navbar lng={lng} />{" "}

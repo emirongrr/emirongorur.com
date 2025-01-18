@@ -10,7 +10,6 @@ import { TbCalendarBolt as DateIcon } from "react-icons/tb";
 import { BlogFeaturedProps } from "../Types/blog";
 import Image from "@components/Blog/BlogImage/Image";
 import { formatDate, formatExcerpt } from "@components/Helpers";
-import FallBackImage from "@components/FallbackImage/fallBackImage";
 
 const BlogFeaturedHero = ({ data }: BlogFeaturedProps) => {
   const [currentFeaturedIndex, setCurrentFeaturedIndex] = useState<number>(0);
@@ -51,10 +50,17 @@ const BlogFeaturedHero = ({ data }: BlogFeaturedProps) => {
             fill={true}
             sizes="100vw, 100vh"
             className="h-full w-full transform object-cover transition-transform duration-300"
+            priority
           />
         ) : (
-          <FallBackImage />
-        )}
+          <Image
+            src="https://blog.emirongorur.com/api/og"
+            alt={"blog emir ongorur"}
+            fill={true}
+            sizes="100vw, 100vh"
+            className="h-full w-full transform object-cover transition-transform duration-300"
+            priority
+          />        )}
 
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70 transition-opacity duration-300"></div>
       </div>

@@ -17,7 +17,6 @@ import Image from "@components/Blog/BlogImage/Image";
 import Breakline from "@components/Breakline/Breakline";
 import Tooltip from "./Tooltip";
 import { toPlainText } from "next-sanity";
-import FallBackImage from "@components/FallbackImage/fallBackImage";
 
 interface BlogCardProps extends PostType {
   isExcerpt?: boolean;
@@ -68,8 +67,13 @@ const BlogCardNew = ({
               className="h-full w-full transform object-cover object-left transition-transform duration-300 group-hover:scale-105 group-hover:blur-sm"
             />
           ) : (
-            <FallBackImage />
-          )}
+            <Image
+              src="https://blog.emirongorur.com/api/og"
+              alt={title || "Blog Cover"}
+              fill={true}
+              sizes="100vw, 100vh"
+              className="h-full w-full transform object-cover object-left transition-transform duration-300 group-hover:scale-105 group-hover:blur-sm"
+            />          )}
 
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black opacity-80 transition-opacity duration-300"></div>
         </div>

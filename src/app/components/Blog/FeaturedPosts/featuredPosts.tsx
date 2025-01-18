@@ -33,7 +33,7 @@ export default async function FeaturedPosts({ params }: { params?: string }) {
                 placeholder={post.coverImage ? "blur" : "empty"}
                 blurDataURL={post.coverImage?.lqip || ""}
                 quality={100}
-                loading="lazy"
+                priority
               />
               <div className="max-w-lg">
                 <h2 className="max-w-sm text-lg tracking-tight mb-4">

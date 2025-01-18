@@ -2,7 +2,18 @@
 const nextConfig = {
   swcMinify: true,
   images: {
-    domains: ["cdn.sanity.io",],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'blog.emirongorur.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        pathname: '/**',
+      },
+    ],
   },
   trailingSlash: false,
   productionBrowserSourceMaps: true,

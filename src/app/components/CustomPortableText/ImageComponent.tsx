@@ -18,7 +18,6 @@ export default function ImageComponent({ src, alt }: ImageProp) {
       className="rounded-sm object-contain object-left-top aspect-auto duration-300"
       src={imageUrl}
       alt={alt}
-      loading="lazy"
       width={1920}
       height={1080}
       placeholder="blur"
