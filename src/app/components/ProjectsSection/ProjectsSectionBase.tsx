@@ -19,10 +19,10 @@ const ProjectsSectionBase = async ({
   });
 
   return (
-    <section id="projects">
+    <section id="projects"> 
       <div className="dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
         <div className="mx-auto lg:max-w-7xl flex items-start justify-start min-h-[100vh] overflow-hidden">
-          <div className="flex flex-col gap-6 mt-24">
+          <div className="flex flex-col gap-6 mt-16">
             <h3 className="mt-24 font-incognito font-semibold tracking-tight sm:text-5xl text-3xl w-full lg:leading-[3.7rem] px-12 lg:px-12 xl:px-0">
               {t("projectsTitle")}
             </h3>

@@ -12,7 +12,7 @@ const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   const data = [
     {
       title: t("home"),
-      href: "#home",
+      href: "/",
     },
     {
       title: t("about"),

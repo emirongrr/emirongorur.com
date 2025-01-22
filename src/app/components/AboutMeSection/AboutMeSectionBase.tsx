@@ -13,11 +13,12 @@ const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   return (
     <section
       id="about"
-      className="bg-white dark:bg-[#000] flex justify-center items-center w-full min-h-screen overflow-hidden"
     >
       <Slide delay={0.1}>
-        <main className="w-full h-full lg:max-w-7xl max-w-3xl overflow-hidden mt-16">
-          <div className="min-h-[70%]">
+        <div className="bg-white dark:bg-[#000]"
+        >
+        <main className="w-full mx-auto min-h-screen lg:max-w-7xl max-w-3xl overflow-hidden">
+          <div className="min-h-[70%] mt-24">
             <section className="flex flex-col lg:flex-row-reverse h-full">
               {/* photo */}
               <aside className="flex flex-col items-center lg:justify-self-center justify-self-start p-6 w-full lg:w-[40%]">
@@ -84,6 +85,7 @@ const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
             <SkillsSection title={t("technologiesSkills")} />
           </div>
         </main>
+        </div>
       </Slide>
     </section>
   );

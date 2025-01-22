@@ -15,17 +15,17 @@ export default function MobileMenu() {
   const data = [
     {
       title: "Home",
-      href: "#home",
+      href: "/",
       icon: HiHome,
     },
     {
       title: "About",
-      href: "#about",
+      href: "/about",
       icon: HiUser,
     },
     {
       title: "Projects",
-      href: "#projects",
+      href: "/projects",
       icon: HiBeaker,
     },
     {
