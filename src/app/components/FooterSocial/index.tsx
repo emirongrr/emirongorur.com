@@ -25,7 +25,7 @@ const FooterSocials: React.FC = () => {
         <a
           id="s_linkedin"
           target="_blank"
-          href="https://linkedin.com/in/emirongrr"
+          href="https://linkedin.com/in/emirongorur"
           title="LinkedIn"
           className="mx-4 my-2 text-gray-200  transition-transform transform hover:scale-125 hover:text-blue-700"
           rel="noopener noreferrer"
@@ -38,7 +38,7 @@ const FooterSocials: React.FC = () => {
         <a
           id="s_x"
           target="_blank"
-          href="https://x.com/emirongrr"
+          href="https://x.com/emirongorur"
           title="X (Twitter)"
           className="mx-4 my-2 text-gray-200  transition-transform transform hover:scale-125 hover:text-gray-500"
           rel="noopener noreferrer"
