@@ -12,11 +12,14 @@
   "LatestArticles": "En Son Makaleler",
   "NoPostFound": "Hiç gönderi bulunamadı.",
   "Loading": "Yükleniyor..",
-  "placeholder": "Ara..",
+  "Placeholder": "Ara..",
   "WrittenBy": "Tarafından yazıldı",
   "Tags": "Etiketler",
   "Featured": "Öne Çıkan",
   "Comments": "Yorumlar",
   "Support": "Destek",
-  "SharePost": "Postu Paylaş"
+  "SharePost": "Postu Paylaş",
+  "Views": "Görüntülenme",
+  "MinsRead": "OKUNDU ",
+  "ReadMore": "DAHA FAZLA"
 }

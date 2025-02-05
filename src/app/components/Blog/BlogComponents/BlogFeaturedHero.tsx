@@ -10,12 +10,12 @@ import { TbCalendarBolt as DateIcon } from "react-icons/tb";
 import { BlogFeaturedProps } from "../Types/blog";
 import Image from "@components/Blog/BlogImage/Image";
 import { formatDate, formatExcerpt } from "@components/Helpers";
+import { useTranslation } from "react-i18next";
 
 const BlogFeaturedHero = ({ data }: BlogFeaturedProps) => {
   const [currentFeaturedIndex, setCurrentFeaturedIndex] = useState<number>(0);
-
   const currentFeatured = data[currentFeaturedIndex];
-
+  const { t } = useTranslation("common");
   const featuredData = data.slice(0, 4);
 
   const nextFeatured = () => {
@@ -70,7 +70,7 @@ const BlogFeaturedHero = ({ data }: BlogFeaturedProps) => {
         <div className="flex flex-col justify-between gap-6 p-6 sm:p-8">
           <div className="flex w-fit items-center gap-x-1 rounded-full bg-lime-200 px-2.5 py-1.5  text-xs text-black">
             <StarIcon size={16} />
-            <span>Featured</span>
+            <span>{t("Featured")}</span>
           </div>
           <div className="flex flex-col justify-end gap-6">
             <div className="flex flex-col space-y-2 text-white">
@@ -98,7 +98,7 @@ const BlogFeaturedHero = ({ data }: BlogFeaturedProps) => {
                 </div>
                 <div className="flex items-center gap-1">
                   <ViewIcon size={15} />
-                  <span className="ml-0.5 text-[13px]">Views</span>
+                  <span className="ml-0.5 text-[13px]">{t("Views")}</span>
                 </div>
               </div>
             </div>

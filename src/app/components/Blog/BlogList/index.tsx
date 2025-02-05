@@ -92,7 +92,7 @@ const BlogListNew: NextPage<Props> = ({ lng }) => {
 
   return (
     <div className="space-y-10" lang={lng}>
-      <BlogFeaturedSection lng={lng} />
+      <BlogFeaturedSection i18n={i18n} lng={lng} />
 
       <div className="space-y-5">
         <div className="mb-6 flex flex-col items-center justify-between gap-3 sm:flex-row">

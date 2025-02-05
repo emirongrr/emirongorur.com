@@ -17,6 +17,7 @@ import Image from "@components/Blog/BlogImage/Image";
 import Breakline from "@components/Breakline/Breakline";
 import Tooltip from "./Tooltip";
 import { toPlainText } from "next-sanity";
+import { useTranslation } from "react-i18next";
 
 interface BlogCardProps extends PostType {
   isExcerpt?: boolean;
@@ -44,6 +45,7 @@ const BlogCardNew = ({
     hidden: { opacity: 0, y: -10 },
     visible: { opacity: 1, y: 0 },
   };
+  const { t } = useTranslation("common");
 
   return (
     <Link href={`/${languange}/${slug}`}>
@@ -141,12 +143,14 @@ const BlogCardNew = ({
               >
                 <div className="flex items-center gap-1">
                   <ViewIcon size={14} />
-                  <span className="ml-0.5 text-xs font-medium">VIEWS</span>
+                  <span className="ml-0.5 text-xs font-medium">
+                    {t("Views")}
+                  </span>
                 </div>
                 <div className="flex items-center gap-1">
                   <ClockIcon size={14} />
                   <span className="ml-0.5 text-xs font-medium">
-                    {readingTimeMinutes.toLocaleString()} MINS READ
+                    {readingTimeMinutes.toLocaleString()} {t("MinsRead")}
                   </span>
                 </div>
               </motion.div>
@@ -161,7 +165,9 @@ const BlogCardNew = ({
                   !isHovered && "hidden",
                 )}
               >
-                <span className="mr-0.5 text-xs font-medium">READ MORE</span>
+                <span className="mr-0.5 text-xs font-medium">
+                  {t("ReadMore")}
+                </span>
                 <MoreIcon size={16} />
               </motion.div>
             </div>
