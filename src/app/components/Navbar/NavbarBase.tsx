@@ -15,7 +15,7 @@ const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
     },
     {
       title: t("about"),
-      href: "https://emirongorur.com",
+      href: `https://emirongorur.com/${lng}`,
       external: true,
     },
   ];
