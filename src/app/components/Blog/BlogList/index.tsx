@@ -14,7 +14,6 @@ import { PortableTextBlock } from "sanity";
 import { NextPage } from "next";
 import { useTranslation } from "../../../i18n";
 import { TranslationResponse } from "../Types/blog";
-import type { i18n as I18nType } from "i18next";
 
 type Props = {
   lng: string;
@@ -27,14 +26,12 @@ const BlogListNew: NextPage<Props> = ({ lng }) => {
   const [t, setT] = useState<(key: string) => string>(
     () => (key: string) => key,
   );
-  const [i18n, setI18n] = useState<I18nType | null>(null);
 
   useEffect(() => {
     let isMounted = true;
-    useTranslation(lng, "common").then(({ t, i18n }: TranslationResponse) => {
+    useTranslation(lng, "common").then(({ t }: TranslationResponse) => {
       if (isMounted) {
         setT(() => t);
-        setI18n(i18n);
       }
     });
     return () => {
