@@ -12,19 +12,19 @@ const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   const data = [
     {
       title: t("home"),
-      href: "/",
+      href:`/${lng}`,
     },
     {
       title: t("about"),
-      href: "#about",
+      href: "/about",
     },
     {
       title: t("projects"),
-      href: "#projects",
+      href: "/projects",
     },
     {
       title: t("blog"),
-      href: "https://blog.emirongorur.com",
+      href: `https://blog.emirongorur.com/${lng}`,
       external: true,
     },
   ];
@@ -33,7 +33,7 @@ const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
   return (
     <header className=" sticky top-0 text-sm py-6 md:px-16 px-6 border-b text-zinc-500 border bg-white dark:bg-black dark:border-zinc-800 border-zinc-200 z-30">
       <div className=" max-w-6xl mx-auto flex items-center justify-between">
-        <Link href="/">
+        <Link href={ `/${lng}`}>
           <Image
             src={Logo}
             width={35}
