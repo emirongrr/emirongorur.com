@@ -68,9 +68,6 @@ const BlogListNew: NextPage<Props> = ({ lng }) => {
     };
   }, [lng]);
 
-  if (!i18n)
-    return <div className="text-center text-gray-500">{t("Loading")}</div>;
-
   const filteredPosts = posts.filter((post) => {
     const lowerSearch = searchTerm.toLowerCase();
     return (
@@ -92,7 +89,7 @@ const BlogListNew: NextPage<Props> = ({ lng }) => {
 
   return (
     <div className="space-y-10" lang={lng}>
-      <BlogFeaturedSection i18n={i18n} lng={lng} />
+      <BlogFeaturedSection lng={lng} />
 
       <div className="space-y-5">
         <div className="mb-6 flex flex-col items-center justify-between gap-3 sm:flex-row">

@@ -6,11 +6,9 @@ import { sanityFetch } from "../../../../sanity/lib/client";
 import { featuredPostsQuery } from "../../../../sanity/lib/sanity.query";
 import BlogFeaturedDefaultHero from "./BlogFeaturedDefaultHero";
 import { NextPage } from "next";
-import { i18n } from "i18next";
 
 type Props = {
   lng: string;
-  i18n: i18n;
 };
 
 const BlogFeaturedSection: NextPage<Props> = ({ lng }) => {
