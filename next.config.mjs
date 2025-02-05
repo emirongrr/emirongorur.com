@@ -4,14 +4,14 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'blog.emirongorur.com',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "blog.emirongorur.com",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        pathname: "/**",
       },
     ],
   },

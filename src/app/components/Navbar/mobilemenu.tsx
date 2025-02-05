@@ -2,10 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import {
-  HiBookmarkAlt,
-  HiOutlineX,
-} from "react-icons/hi";
+import { HiBookmarkAlt, HiOutlineX } from "react-icons/hi";
 
 export default function MobileMenu() {
   const [navShow, setNavShow] = useState(false);

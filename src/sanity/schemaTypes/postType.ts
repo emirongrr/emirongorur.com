@@ -9,6 +9,17 @@ export default defineType({
   icon: BiBookOpen,
   fields: [
     defineField({
+      name: "languange",
+      title: "Languange",
+      type: "string",
+      options: {
+        list: [
+          { title: "English", value: "en" },
+          { title: "Türkçe", value: "tr" },
+        ],
+      },
+    }),
+    defineField({
       name: "title",
       title: "Title",
       type: "string",
@@ -21,8 +32,15 @@ export default defineType({
       title: "Slug",
       type: "slug",
       description: "Add a slug to your post or generate it from the title",
-      options: { source: "title" },
+      options: { source: "title", isUnique: () => true },
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "slug_tr",
+      title: "Slug_tr",
+      type: "slug",
+      description: "Add a slug to your post",
+      options: { source: "title", isUnique: () => true },
     }),
     defineField({
       name: "description",

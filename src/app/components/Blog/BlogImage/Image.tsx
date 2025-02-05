@@ -7,11 +7,18 @@ import cn from "./cn";
 
 type ImageProps = {
   rounded?: string;
-  loadingBehavior?: "lazy" | "eager"; 
+  loadingBehavior?: "lazy" | "eager";
 } & NextImageProps;
 
 const Image = (props: ImageProps) => {
-  const { alt, src, className, rounded, loadingBehavior = "eager", ...rest } = props;
+  const {
+    alt,
+    src,
+    className,
+    rounded,
+    loadingBehavior = "eager",
+    ...rest
+  } = props;
   const [isLoading, setLoading] = useState(true);
 
   return (
@@ -33,7 +40,7 @@ const Image = (props: ImageProps) => {
         )}
         src={src}
         alt={alt}
-        loading={loadingBehavior} 
+        loading={loadingBehavior}
         priority={loadingBehavior === "lazy" ? false : true}
         quality={100}
         onLoadingComplete={() => setLoading(false)}

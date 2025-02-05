@@ -7,6 +7,8 @@ import RefLink from "@components/RefLink";
 import { QuizValueProps, TableValueProps } from "@components/Blog/Types/table";
 import Quiz from "./Quiz";
 import Table from "./Table";
+import YoutubeIframe from "@components/YoutubeIFrame/youtube";
+import getYoutubeId from "../../utils/getYoutubeId";
 
 export const CustomPortableText: PortableTextComponents = {
   types: {
@@ -16,13 +18,17 @@ export const CustomPortableText: PortableTextComponents = {
       <Table value={value} />
     ),
     quiz: ({ value }: { value: QuizValueProps }) => <Quiz value={value} />,
+    youtube: ({ value }: { value: { url: string } }) => {
+      const id = getYoutubeId(value.url)!;
+      return <YoutubeIframe videoId={id} />;
+    },
   },
 
   block: {
     normal: ({ children }) => <p className="mt-2 mb-6">{children}</p>,
     h2: ({ children }) => (
       <h2
-        id={children // TODO: Export slugify code to reusable function
+        id={children
           ?.toString()
           .toLowerCase()
           .replaceAll(/[^-\w]+/g, "-")

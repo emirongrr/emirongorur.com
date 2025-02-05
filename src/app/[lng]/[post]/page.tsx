@@ -17,6 +17,8 @@ import FeaturedPosts from "@components/Blog/FeaturedPosts/featuredPosts";
 import Comments from "@components/CustomPortableText/Comments";
 import SharePost from "@components/Blog/SharePost/SharePost";
 import { TbRewindBackward10 } from "react-icons/tb";
+import { fallbackLng } from "../../i18n/settings";
+import { useTranslation } from "../../i18n";
 
 type Props = {
   params: {
@@ -27,12 +29,12 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.post;
-  const lng = params.lng;
+  const lng = params.lng || fallbackLng;
 
   const post: PostType = await sanityFetch({
     query: singlePostQuery,
     tags: ["Post"],
-    qParams: { slug },
+    qParams: { slug, lang: params.lng },
   });
 
   if (!post) {
@@ -79,24 +81,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Post({ params }: Props) {
   const slug = params.post;
+  const lng = params.lng || fallbackLng;
+
   const post: PostType = await sanityFetch({
     query: singlePostQuery,
+    qParams: { slug, lang: lng },
     tags: ["Post"],
-    qParams: { slug },
   });
-
-  const words = toPlainText(post.body);
 
   if (!post) {
     notFound();
   }
+
+  const words = toPlainText(post.body);
+
+  const { t } = await useTranslation(lng, "common");
 
   return (
     <main className="max-w-7xl mt-12 mx-auto md:px-16 px-6">
       <header>
         <Slide className="relative flex items-center gap-x-2 border-b dark:border-zinc-800 border-zinc-200 pb-8">
           <Link
-            href="/"
+            href={`/${lng}/`}
             className="whitespace-nowrap dark:text-zinc-400 text-zinc-400 hover:dark:text-white hover:text-zinc-700 text-sm border-b dark:border-zinc-700 border-zinc-200"
           >
             <TbRewindBackward10 />
@@ -117,8 +123,8 @@ export default async function Post({ params }: Props) {
                 <HiCalendar />
                 <time dateTime={post.date ? post.date : post._createdAt}>
                   {post.date
-                    ? formatDate(post.date)
-                    : formatDate(post._createdAt)}
+                    ? formatDate(post.date!, "MMMM dd, yyyy", lng)
+                    : formatDate(post._createdAt, "MMMM dd, yyyy", lng)}
                 </time>
               </div>
               <Link
@@ -126,11 +132,11 @@ export default async function Post({ params }: Props) {
                 className="flex items-center gap-x-2 dark:text-primary-color text-tertiary-color"
               >
                 <HiChat />
-                <div className="#comments">Comments</div>
+                <div className="#comments"> {t("Comments")}</div>
               </Link>
               <div className="flex items-center gap-x-2">
                 <BiSolidTime />
-                <div className="">{calculateReadingTime(words)}</div>
+                <div className="">{calculateReadingTime(words, lng)}</div>
               </div>
             </div>
 
@@ -144,19 +150,19 @@ export default async function Post({ params }: Props) {
                   src={post.coverImage?.image}
                   alt={post.coverImage?.alt || post.title}
                   quality={100}
-                  placeholder={post.coverImage?.lqip ? `blur` : "empty"}
+                  placeholder={post.coverImage?.lqip ? "blur" : "empty"}
                   blurDataURL={post.coverImage?.lqip || ""}
                 />
               ) : (
                 <Image
-                className="rounded-xl border dark:border-zinc-800 border-zinc-100 object-cover"
-                layout="fill"
-                src="https://blog.emirongorur.com/api/og"
-                alt="emir ongorur blog"
-                quality={100}
-                placeholder={post.coverImage?.lqip ? `blur` : "empty"}
-                blurDataURL={post.coverImage?.lqip || ""}
-              />
+                  className="rounded-xl border dark:border-zinc-800 border-zinc-100 object-cover"
+                  layout="fill"
+                  src="https://blog.emirongorur.com/api/og"
+                  alt="emir ongorur blog"
+                  quality={100}
+                  placeholder={post.coverImage?.lqip ? "blur" : "empty"}
+                  blurDataURL={post.coverImage?.lqip || ""}
+                />
               )}
             </div>
 
@@ -168,7 +174,7 @@ export default async function Post({ params }: Props) {
           <aside className="flex flex-col lg:max-h-full h-max gap-y-8 sticky top-2 bottom-auto right-0 py-10 lg:px-6 px-0">
             <section className="border-b dark:border-zinc-800 border-zinc-200 pb-10">
               <p className="dark:text-zinc-400 text-zinc-500 text-sm">
-                Written By
+                {t("WrittenBy")}
               </p>
               <address className="flex items-center gap-x-3 mt-4 not-italic">
                 <div className="relative w-12 h-12">
@@ -200,7 +206,7 @@ export default async function Post({ params }: Props) {
 
             <section className="border-b dark:border-zinc-800 border-zinc-200 pb-10">
               <h3 className="text-xl font-semibold tracking-tight mb-4">
-                Tags
+                {t("Tags")}
               </h3>
               <ul className="flex flex-wrap items-center gap-2 tracking-tight">
                 {post.tags.map((tag, id) => (
@@ -218,13 +224,14 @@ export default async function Post({ params }: Props) {
               title={post.title}
               slug={post.slug}
               description={post.description}
+              lng={lng}
             />
 
             <section className="border-b dark:border-zinc-800 border-zinc-200 pb-10">
               <h3 className="text-xl font-semibold tracking-tight mb-4">
-                Featured
+                {t("Featured")}
               </h3>
-              <FeaturedPosts params={params.post} />
+              <FeaturedPosts lng={lng} params={params.post} />
             </section>
           </aside>
         </Slide>
@@ -235,14 +242,14 @@ export default async function Post({ params }: Props) {
         className="max-w-3xl mt-10 lg:border-t dark:border-zinc-800 border-zinc-200 lg:py-10 pt-0"
       >
         <h3 className="lg:text-4xl text-3xl font-semibold tracking-tight mb-8">
-          Comments
+          {t("Comments")}
         </h3>
-        <Comments />
+        <Comments lng={lng} />
       </section>
 
       <section className="max-w-3xl lg:py-10 pt-0">
         <h3 className="lg:text-4xl text-3xl font-semibold tracking-tight mb-8">
-          Support
+          {t("Support")}
         </h3>
         {/* <Buymeacoffee /> */}
       </section>

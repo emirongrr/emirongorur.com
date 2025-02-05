@@ -7,5 +7,16 @@
   "blog": "Blog",
   "blogTitle": "Blog | Emir Öngörür",
   "blogDescription": "Emir Öngörür'ün Blogundan son makaleyi okuyun",
-  "openGraphDescription": "Emir Öngörür'ün Blogundan son makaleyi okuyun"
+  "openGraphDescription": "Emir Öngörür'ün Blogundan son makaleyi okuyun",
+  "search": "Ara",
+  "LatestArticles": "En Son Makaleler",
+  "NoPostFound": "Hiç gönderi bulunamadı.",
+  "Loading": "Yükleniyor..",
+  "placeholder": "Ara..",
+  "WrittenBy": "Tarafından yazıldı",
+  "Tags": "Etiketler",
+  "Featured": "Öne Çıkan",
+  "Comments": "Yorumlar",
+  "Support": "Destek",
+  "SharePost": "Postu Paylaş"
 }

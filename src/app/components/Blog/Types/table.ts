@@ -68,6 +68,7 @@ export type PostType = {
   _updatedAt?: string;
   title: string;
   slug: string;
+  slug_tr: string;
   description: string;
   canonicalLink?: string;
   date?: string;
@@ -88,12 +89,5 @@ export type PostType = {
   body: PortableTextBlock[];
   featured: boolean;
   isPublished: boolean;
-};
-
-export type HeroeType = {
-  _id: string;
-  _createdAt: string;
-  name: string;
-  url: string;
-  met: boolean;
+  languange: string;
 };

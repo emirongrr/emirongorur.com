@@ -30,11 +30,13 @@ const BlogCardNew = ({
   coverImage,
   tags,
   body,
+  languange,
   isExcerpt = true,
 }: BlogCardProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  const readingTimeMinutes = calculateReadingTime(toPlainText(body)) ?? 0;
+  const readingTimeMinutes =
+    calculateReadingTime(toPlainText(body), languange) ?? 0;
 
   const tagList = tags ?? [];
 
@@ -44,7 +46,7 @@ const BlogCardNew = ({
   };
 
   return (
-    <Link href={`/${slug}`}>
+    <Link href={`/${languange}/${slug}`}>
       <Card
         className="group relative flex min-h-[400px] w-full flex-col rounded-lg border shadow-sm dark:border-neutral-800"
         onMouseEnter={() => setIsHovered(true)}
@@ -73,7 +75,8 @@ const BlogCardNew = ({
               fill={true}
               sizes="100vw, 100vh"
               className="h-full w-full transform object-cover object-left transition-transform duration-300 group-hover:scale-105 group-hover:blur-sm"
-            />          )}
+            />
+          )}
 
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black opacity-80 transition-opacity duration-300"></div>
         </div>
@@ -101,7 +104,9 @@ const BlogCardNew = ({
               </h3>
               <div className="flex items-center gap-1 text-neutral-400">
                 <DateIcon size={14} />
-                <span className="ml-0.5 text-xs">{formatDate(date ?? "")}</span>
+                <span className="ml-0.5 text-xs">
+                  {formatDate(date ?? "", "MMMM dd, yyyy", languange)}
+                </span>
               </div>
               {isExcerpt && (
                 <p className="text-sm leading-relaxed text-neutral-400">

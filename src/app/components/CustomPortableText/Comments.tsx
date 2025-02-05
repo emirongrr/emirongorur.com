@@ -4,7 +4,11 @@ import { useTheme } from "next-themes";
 import Giscus from "@giscus/react";
 import { giscusCategoryId, giscusRepoId } from "../../../sanity/env";
 
-export default function Comments() {
+type CommentsProps = {
+  lng: string;
+};
+
+export default function Comments({ lng }: CommentsProps) {
   const theme = useTheme();
   const giscusTheme =
     theme.theme === "light"
@@ -26,7 +30,7 @@ export default function Comments() {
       emitMetadata="0"
       inputPosition="bottom"
       theme={giscusTheme}
-      lang="en"
+      lang={lng}
       loading="lazy"
     />
   );

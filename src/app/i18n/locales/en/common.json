@@ -7,5 +7,16 @@
   "blog": "Blog",
   "blogTitle": "Blog | Emir Öngörür",
   "blogDescription": "Read the latest article from Emir Öngörür's Blog",
-  "openGraphDescription": "Read the latest article from Emir Öngörür's Blog"
+  "openGraphDescription": "Read the latest article from Emir Öngörür's Blog",
+  "search": "Search",
+  "LatestArticles": "Latest Articles",
+  "NoPostFound": "Post Not Found.",
+  "Loading": "Loading..",
+  "Placeholder": "Search..",
+  "WrittenBy": "Written By",
+  "Tags": "Tags",
+  "Featured": "Featured",
+  "Comments": "Comments",
+  "Support": "Support",
+  "SharePost": "Share Post"
 }

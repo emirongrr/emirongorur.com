@@ -1,17 +1,25 @@
-import type { PreviewProps } from "sanity";
-import { Flex, Text } from "@sanity/ui";
-import YouTubePlayer from "react-player/youtube";
+import { BiLogoYoutube } from "react-icons/bi";
+import getYoutubeId from "../../utils/getYoutubeId";
+import YoutubeIframe from "@components/YoutubeIFrame/youtube";
 
-export function YouTubeWidget(props: PreviewProps) {
-  const { title: url } = props;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function YoutubeWidget(props: any) {
+  const { url } = props;
+  const id = getYoutubeId(url)!;
 
   return (
-    <Flex padding={3} align="center" justify="center">
-      {typeof url === "string" ? (
-        <YouTubePlayer url={url} />
+    <div className="pt-1 relative">
+      {url ? (
+        <>
+          {props.renderDefault(props)}
+          <YoutubeIframe videoId={id} />
+        </>
       ) : (
-        <Text>Add a YouTube URL</Text>
+        <div className="flex items-center justify-center gap-x-2 my-3">
+          <BiLogoYoutube className="text-[red] text-lg" />
+          <span>Add YouTube URL</span>
+        </div>
       )}
-    </Flex>
+    </div>
   );
 }

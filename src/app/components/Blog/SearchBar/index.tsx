@@ -4,12 +4,14 @@ interface SearchBarProps {
   searchTerm: string;
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClearSearch: () => void;
+  placeholder: string;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
   searchTerm,
   onSearchChange,
   onClearSearch,
+  placeholder,
 }) => {
   return (
     <div className="flex w-full items-center sm:w-auto ">
@@ -20,7 +22,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         />
         <input
           type="text"
-          placeholder="Search..."
+          placeholder={placeholder}
           className="w-full rounded-lg border-2 px-10 py-2  text-sm transition-all duration-300 dark:border-neutral-600"
           value={searchTerm}
           onChange={onSearchChange}

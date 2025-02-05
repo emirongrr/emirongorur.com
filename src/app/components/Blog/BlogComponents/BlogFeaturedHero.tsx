@@ -60,7 +60,8 @@ const BlogFeaturedHero = ({ data }: BlogFeaturedProps) => {
             sizes="100vw, 100vh"
             className="h-full w-full transform object-cover transition-transform duration-300"
             priority
-          />        )}
+          />
+        )}
 
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70 transition-opacity duration-300"></div>
       </div>
@@ -73,7 +74,9 @@ const BlogFeaturedHero = ({ data }: BlogFeaturedProps) => {
           </div>
           <div className="flex flex-col justify-end gap-6">
             <div className="flex flex-col space-y-2 text-white">
-              <Link href={`/blog/${currentFeatured?.slug}?`}>
+              <Link
+                href={`/${currentFeatured.languange}/${currentFeatured?.slug}?`}
+              >
                 <h3 className="group relative flex w-fit cursor-pointer  text-2xl font-bold leading-normal">
                   {currentFeatured?.title}
                   <span className="absolute -bottom-0.5 left-0 h-0.5 w-full origin-left scale-x-0 transform bg-white transition-transform group-hover:scale-x-100"></span>
@@ -86,7 +89,11 @@ const BlogFeaturedHero = ({ data }: BlogFeaturedProps) => {
                 <div className="flex items-center gap-1 ">
                   <DateIcon size={16} />
                   <span className="ml-0.5 text-xs">
-                    {formatDate(currentFeatured?._createdAt)}
+                    {formatDate(
+                      currentFeatured?._createdAt,
+                      "MMMM dd, yyyy",
+                      currentFeatured.languange,
+                    )}
                   </span>
                 </div>
                 <div className="flex items-center gap-1">

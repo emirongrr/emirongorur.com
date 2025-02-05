@@ -6,6 +6,7 @@ const postField = groq`
   _createdAt,
   title,
   "slug": slug.current,
+  slug_tr,
   description,
   coverImage {
     "image": asset->url,
@@ -13,7 +14,8 @@ const postField = groq`
     alt,
   },
   featured,
-  isPublished
+  isPublished,
+  languange
 `;
 
 export const profileQuery = groq`*[_type == "profile"]{
@@ -67,7 +69,7 @@ export const singleProjectQuery = groq`*[_type == "project" && slug.current == $
   description
 }`;
 
-export const postsQuery = groq`*[_type == "Post"] | order(_createdAt desc){
+export const postsQuery = groq`*[_type == "Post" && languange  == $lang] | order(_createdAt desc){
   ${postField},
   date,
   "author": author-> {
@@ -78,11 +80,11 @@ export const postsQuery = groq`*[_type == "Post"] | order(_createdAt desc){
   body,
 }`;
 
-export const featuredPostsQuery = groq`*[_type == "Post" && featured == true] | order(_createdAt desc) {
+export const featuredPostsQuery = groq`*[_type == "Post" && featured == true &&  languange  == $lang] | order(_createdAt desc) {
   ${postField}
 }`;
 
-export const singlePostQuery = groq`*[_type == "Post" && slug.current == $slug][0]{
+export const singlePostQuery = groq`*[_type == "Post" && slug.current == $slug  &&  languange  == $lang][0]{
   ${postField},
   _updatedAt,
   canonicalLink,
@@ -98,5 +100,3 @@ export const singlePostQuery = groq`*[_type == "Post" && slug.current == $slug][
   },
   body,
 }`;
-
-export const heroesQuery = groq`*[_type == "heroe"] | order(_createdAt asc) { _id, _createdAt, name, url, met }`;

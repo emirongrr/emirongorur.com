@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Container from "@components/Container";
 import BlogListNew from "@components/Blog/BlogList";
+import { fallbackLng } from "../i18n/settings";
 
 type Props = {
   params: {
@@ -9,7 +10,7 @@ type Props = {
 };
 
 const BlogPage: NextPage<Props> = ({ params }) => {
-  const { lng } = params;
+  const lng = params.lng || fallbackLng;
 
   return (
     <Container className="mx-auto xl:!-mt-5 max-w-6xl" data-aos="fade-up">

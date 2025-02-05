@@ -158,3 +158,10 @@ export type CommentItemProps = {
   user: UserProps;
   children: Comment[];
 };
+
+import { i18n } from "i18next";
+
+export interface TranslationResponse {
+  t: (key: string) => string;
+  i18n: i18n;
+}

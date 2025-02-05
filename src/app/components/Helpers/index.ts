@@ -4,6 +4,7 @@ import {
 } from "@components/Blog/Types/learn";
 import { format } from "date-fns";
 import { formatInTimeZone } from "date-fns-tz";
+import { enUS, tr } from "date-fns/locale";
 
 interface ParsedUrlProps {
   parentSlug: string;
@@ -12,27 +13,37 @@ interface ParsedUrlProps {
 
 export const formatBlogSlug = (slug: string) => slug?.slice(0, -5);
 
-export const formatDate = (date: string, type = "MMMM dd, yyyy") => {
+export const formatDate = (
+  date: string,
+  type = "MMMM dd, yyyy",
+  lng: string,
+) => {
   if (!date) {
     return "";
   }
 
+  const locale = lng === "tr" ? tr : enUS;
+
   const formattedDate = format(
     formatInTimeZone(date, "Europe/Paris", "yyyy-MM-dd HH:mm:ss zzz"),
     type,
+    { locale },
   );
   return formattedDate;
 };
 
 export const groupContentByChapter = (
   contents: MdxFileContentProps[],
+  lng: string,
 ): Record<string, ChapterGroupProps> => {
   return contents.reduce(
     (acc, content) => {
       const { frontMatter } = content;
 
       const chapter_id = frontMatter.chapter_id ?? 0;
-      const chapter_title = frontMatter.chapter_title || "ungrouped";
+      const defaultChapterTitle =
+        lng === "tr" ? "gruplandırılmamış" : "ungrouped";
+      const chapter_title = frontMatter.chapter_title || defaultChapterTitle;
 
       if (!acc[chapter_id]) {
         acc[chapter_id] = {
@@ -43,7 +54,6 @@ export const groupContentByChapter = (
       }
 
       acc[chapter_id].contents.push(content);
-
       return acc;
     },
     {} as Record<string, ChapterGroupProps>,
@@ -75,16 +85,16 @@ export const formatExcerpt = (content: string, maxLength = 100) => {
   }
 
   const trimmed = cleanedContent.substring(0, maxLength).replace(/\s+\S*$/, "");
-
   return trimmed + (cleanedContent.length > maxLength ? "..." : "");
 };
 
-export function calculateReadingTime(words: string) {
+export function calculateReadingTime(words: string, lng: string) {
   const trimString = words.trim();
-
   const wordsArray = trimString.split(/\s+/);
   const wordCount = wordsArray.length;
 
   const avgReadTime: number = 185;
-  return `${(wordCount / avgReadTime).toFixed(0)} min`;
+  const time = (wordCount / avgReadTime).toFixed(0);
+
+  return lng === "tr" ? `${time} dk` : `${time} min`;
 }

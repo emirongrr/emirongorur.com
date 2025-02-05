@@ -1,14 +1,53 @@
+"use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/legacy/image";
 import { PostType } from "../Types/table";
 import { sanityFetch } from "../../../../sanity/lib/client";
 import { postsQuery } from "../../../../sanity/lib/sanity.query";
 
-export default async function FeaturedPosts({ params }: { params?: string }) {
-  const featuredPosts: PostType[] = await sanityFetch({
-    query: postsQuery,
-    tags: ["Post"],
-  });
+export default function FeaturedPosts({
+  lng,
+  params,
+}: {
+  lng: string;
+  params?: string;
+}) {
+  const [featuredPosts, setFeaturedPosts] = useState<PostType[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchFeaturedPosts = async () => {
+      try {
+        const posts = (await sanityFetch({
+          query: postsQuery,
+          qParams: { lang: lng },
+          tags: ["Post"],
+        })) as PostType[];
+
+        setFeaturedPosts(posts);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Failed to load posts.");
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFeaturedPosts();
+  }, [lng]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <>
@@ -16,12 +55,10 @@ export default async function FeaturedPosts({ params }: { params?: string }) {
         post.featured !== true || post.isPublished !== true ? null : (
           <article
             key={post._id}
-            className={`mb-4 ${
-              post.slug === params ? "hidden" : "flex lg:flex-row flex-col"
-            }`}
+            className={`mb-4 ${post.slug === params ? "hidden" : "flex lg:flex-row flex-col"}`}
           >
             <Link
-              href={`/${post.slug}`}
+              href={`/${lng}/${post.slug}`}
               className="flex flex-col gap-4 dark:bg-primary-bg bg-secondary-bg p-5 rounded-lg border dark:border-zinc-800 border-zinc-200"
             >
               <Image

@@ -5,8 +5,13 @@ import { PostType } from "../Types/table";
 import { sanityFetch } from "../../../../sanity/lib/client";
 import { featuredPostsQuery } from "../../../../sanity/lib/sanity.query";
 import BlogFeaturedDefaultHero from "./BlogFeaturedDefaultHero";
+import { NextPage } from "next";
 
-const BlogFeaturedSection = () => {
+type Props = {
+  lng: string;
+};
+
+const BlogFeaturedSection: NextPage<Props> = ({ lng }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [displayedData, setDisplayedData] = useState<PostType[]>([]);
 
@@ -15,6 +20,7 @@ const BlogFeaturedSection = () => {
       try {
         const featuredData: PostType[] = await sanityFetch({
           query: featuredPostsQuery,
+          qParams: { lang: lng },
           tags: ["Post"],
         });
         setDisplayedData(featuredData);
@@ -26,7 +32,7 @@ const BlogFeaturedSection = () => {
     };
 
     fetchData();
-  }, []);
+  }, [lng]);
 
   if (isLoading) {
     return <BlogFeaturedHeroSkeleton />;

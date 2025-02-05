@@ -27,21 +27,23 @@ export function middleware(req: NextRequest) {
 
   let lng = req.cookies.get(cookieName)?.value || undefined;
 
-  if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language") || "") || undefined;
+  if (!lng)
+    lng =
+      acceptLanguage.get(req.headers.get("Accept-Language") || "") || undefined;
 
   if (!lng) lng = fallbackLng;
 
   const isAlreadyCorrectLanguage = languages.some((loc) =>
-    pathname.startsWith(`/${loc}`)
+    pathname.startsWith(`/${loc}`),
   );
 
   if (isAlreadyCorrectLanguage) {
-    return NextResponse.next(); 
+    return NextResponse.next();
   }
 
   const redirectPathname = `/${lng}${pathname}`.replace(/\/$/, "");
   const redirectUrl = new URL(redirectPathname, req.url);
-  redirectUrl.search = searchParams.toString(); 
+  redirectUrl.search = searchParams.toString();
 
   return NextResponse.redirect(redirectUrl, 308);
 }

@@ -1,11 +1,13 @@
+"use client";
 import FeaturedPosts from "@components/Blog/FeaturedPosts/featuredPosts";
 
 type props = {
+  lng: string;
   title: string;
   description: string;
 };
 
-export default function NotFoundComponent({ title, description }: props) {
+export default function NotFoundComponent({ lng, title, description }: props) {
   return (
     <main className="min-h-[60vh] max-w-7xl mx-auto mt-24 md:px-16 px-6">
       <header className="max-w-4xl">
@@ -18,7 +20,7 @@ export default function NotFoundComponent({ title, description }: props) {
       </header>
 
       <div className="max-w-4xl grid lg:grid-cols-2 grid-cols-1 gap-4 mt-12">
-        <FeaturedPosts />
+        <FeaturedPosts lng={lng} />
       </div>
     </main>
   );
