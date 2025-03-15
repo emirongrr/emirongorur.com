@@ -113,14 +113,14 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://blog.emirongorur.com"),
   alternates: {
-    canonical: "/",
+    canonical: "https://blog.emirongorur.com/",
     languages: {
       en: "/en",
       tr: "/tr",
     },
   },
   other: {
-    "apple-mobile-web-app-title": "Emir Öngörür - Blog",
+    "apple-mobile-web-app-title": "Emir Öngörür | Blog",
   },
 };
 
