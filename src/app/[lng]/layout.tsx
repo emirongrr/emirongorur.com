@@ -52,12 +52,6 @@ const breadcrumbSchema = {
       name: "x",
       item: "https://x.com/emirongorur",
     },
-    {
-      "@type": "ListItem",
-      position: 5,
-      name: "Resume",
-      item: "https://www.emirongorur.com/assets/resume.pdf",
-    },
   ],
 };
 
@@ -113,14 +107,14 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://www.emirongorur.com"),
   alternates: {
-    canonical: "/",
+    canonical: "https://www.emirongorur.com",
     languages: {
       en: "/en",
       tr: "/tr",
     },
   },
   other: {
-    "apple-mobile-web-app-title": "Emir Öngörür - Portfolio",
+    "apple-mobile-web-app-title": "Emir Öngörür | Portfolio",
   },
 };
 export default async function RootLayout({

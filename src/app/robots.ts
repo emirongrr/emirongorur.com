@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: "/studio",
+        disallow: ["/studio", "/assets/resume.pdf"],
       },
     ],
     sitemap: "https://emirongorur.com/sitemap.xml",
