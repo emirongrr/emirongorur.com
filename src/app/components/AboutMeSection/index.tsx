@@ -3,5 +3,14 @@ import AboutMeSectionBase from "./AboutMeSectionBase";
 
 export const AboutMeSection = async ({ lng }: { lng: string }) => {
   const { i18n } = await useTranslation(lng, "about");
-  return <AboutMeSectionBase i18n={i18n} lng={lng} />;
+  const t = i18n.getFixedT(lng, "about");
+
+  return (
+    <AboutMeSectionBase
+      title={t("aboutTitle")}
+      content={t("aboutContent")}
+      viewResume={t("viewResume")}
+      technologiesSkills={t("technologiesSkills")}
+    />
+  );
 };

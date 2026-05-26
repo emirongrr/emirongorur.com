@@ -1,18 +1,16 @@
 import Image from "next/image";
-import { i18n } from "i18next";
 import { sanityFetch } from "../../../sanity/lib/client";
 import { ProjectType } from "../../types";
 import { projectsQuery } from "../../../sanity/lib/sanity.query";
 import { Slide } from "@components/Animation/Slide";
 
 const ProjectsSectionBase = async ({
-  i18n,
-  lng,
+  title,
+  content,
 }: {
-  i18n: i18n;
-  lng: string;
+  title: string;
+  content: string;
 }) => {
-  const t = i18n.getFixedT(lng, "projects");
   const projects: ProjectType[] = await sanityFetch({
     query: projectsQuery,
     tags: ["project"],
@@ -24,10 +22,10 @@ const ProjectsSectionBase = async ({
         <div className="mx-auto lg:max-w-7xl flex items-start justify-start min-h-[100vh] overflow-hidden">
           <div className="flex flex-col gap-6 mt-16">
             <h3 className="mt-24 font-incognito font-semibold tracking-tight sm:text-5xl text-3xl w-full lg:leading-[3.7rem] px-12 lg:px-12 xl:px-0">
-              {t("projectsTitle")}
+              {title}
             </h3>
             <p className="max-w-5xl text-base dark:text-zinc-300 text-zinc-600 leading-relaxed px-12 lg:px-12 xl:px-0">
-              {t("projectsContent")}
+              {content}
             </p>
             <Slide delay={0.1}>
               {projects.length > 0 ? (

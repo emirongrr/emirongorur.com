@@ -2,16 +2,21 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import FooterSocials from "@components/FooterSocial";
-import { i18n } from "i18next";
 import GradientBackground from "@components/GradientBackground";
 
 const EthereumLogo = dynamic(() => import("@components/EthereumLogo"), {
   ssr: false,
 });
 
-const LandingSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
-  const t = i18n.getFixedT(lng, "landing");
-
+const LandingSectionBase = ({
+  title,
+  content,
+  logoAlt,
+}: {
+  title: string;
+  content: string;
+  logoAlt: string;
+}) => {
   return (
     <main className="flex justify-center items-center w-full min-h-full md:h-[calc(100vh-89px)] overflow-hidden">
       <section className="flex w-full h-full flex-col">
@@ -21,16 +26,16 @@ const LandingSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
               {/* Title Section */}
               <header className="mb-6 lg:max-w-2xl max-w-full">
                 <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl leading-tight text-white lg:min-w-[700px]">
-                  {t("landingTitle")}
+                  {title}
                 </h1>
                 <h2 className="text-base text-zinc-300 leading-relaxed mt-4">
-                  {t("landingContent")}
+                  {content}
                 </h2>
               </header>
 
               {/* Logo Section */}
               <section className="w-full h-64 flex items-center justify-center">
-                <EthereumLogo aria-label={t("landingLogoAlt")} />
+                <EthereumLogo aria-label={logoAlt} />
               </section>
 
               {/* Link Section */}

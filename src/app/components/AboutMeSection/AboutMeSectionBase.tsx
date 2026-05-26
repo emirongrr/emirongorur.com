@@ -4,12 +4,20 @@ import Image from "next/image";
 import { BiEnvelope } from "react-icons/bi";
 import { BiLinkExternal } from "react-icons/bi";
 import { BiSolidDownload } from "react-icons/bi";
-import { i18n } from "i18next";
 import Link from "next/link";
 import { Slide } from "@components/Animation/Slide";
 
-const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
-  const t = i18n.getFixedT(lng, "about");
+const AboutMeSectionBase = ({
+  title,
+  content,
+  viewResume,
+  technologiesSkills,
+}: {
+  title: string;
+  content: string;
+  viewResume: string;
+  technologiesSkills: string;
+}) => {
   return (
     <section
       id="about"
@@ -43,7 +51,7 @@ const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center text-center gap-x-2 basis-[90%] dark:bg-[#080808] bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-2 text-lg font-incognito font-semibold"
                       >
-                        {t("viewResume")}{" "}
+                        {viewResume}{" "}
                         <BiLinkExternal className="text-base" />
                       </Link>
                       <a
@@ -73,16 +81,16 @@ const AboutMeSectionBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
               {/* text */}
               <div className="flex flex-col w-full lg:w-[60%] p-6">
                 <h2 className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight basis-1/4 p-6">
-                  {t("aboutTitle")}
+                  {title}
                 </h2>
-                <p className="p-6 h-full">{t("aboutContent")}</p>
+                <p className="p-6 h-full">{content}</p>
               </div>
             </section>
           </div>
 
           {/* skills */}
           <div className="w-full h-[30%] min-h-[300px]">
-            <SkillsSection title={t("technologiesSkills")} />
+            <SkillsSection title={technologiesSkills} />
           </div>
         </main>
         </div>

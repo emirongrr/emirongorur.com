@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "./config/site";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Emir Ongörür | Portfolio",
-    short_name: "Emir Ongörür",
-    description:
-      "Personal website of Emir Ongörür - Computer Engineer, Blockchain Enthusiast, and Open-Source Contributor.",
-    start_url: "/",
+    name: `${siteConfig.name} | Portfolio`,
+    short_name: siteConfig.name,
+    description: siteConfig.description,
+    start_url: "/en",
     theme_color: "#ffffff",
     background_color: "#ffffff",
     display: "standalone",

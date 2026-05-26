@@ -9,32 +9,24 @@ import {
   HiOutlineX,
   HiUser,
 } from "react-icons/hi";
+import { getNavigationItems } from "../../config/navigation";
 
-export default function MobileMenu() {
+const iconByTitle = {
+  Home: HiHome,
+  Anasayfa: HiHome,
+  About: HiUser,
+  Hakkımda: HiUser,
+  Projects: HiBeaker,
+  Projeler: HiBeaker,
+  Blog: HiBookmarkAlt,
+};
+
+export default function MobileMenu({ lng }: { lng: string }) {
   const [navShow, setNavShow] = useState(false);
-  const data = [
-    {
-      title: "Home",
-      href: "/",
-      icon: HiHome,
-    },
-    {
-      title: "About",
-      href: "/about",
-      icon: HiUser,
-    },
-    {
-      title: "Projects",
-      href: "/projects",
-      icon: HiBeaker,
-    },
-    {
-      title: "Blog",
-      href: "https://blog.emirongorur.com",
-      icon: HiBookmarkAlt,
-      external: true,
-    },
-  ];
+  const data = getNavigationItems(lng).map((item) => ({
+    ...item,
+    icon: iconByTitle[item.title as keyof typeof iconByTitle] ?? HiHome,
+  }));
 
   const onToggleNav = () => {
     setNavShow((status) => {
@@ -62,7 +54,7 @@ export default function MobileMenu() {
         }`}
       >
         <div className="flex items-center justify-between mt-6 px-8">
-          <Link href="/" onClick={onToggleNav}></Link>
+          <Link href={`/${lng}`} onClick={onToggleNav} aria-label="Home" />
 
           <button
             aria-label="Toggle Menu"

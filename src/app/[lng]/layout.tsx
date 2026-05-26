@@ -6,7 +6,8 @@ import { Providers } from "../provider";
 import { gitlabmono, incognito } from "../../../public/fonts/font";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import { Metadata } from "next";
+import { buildPageMetadata, buildSiteJsonLd } from "../lib/seo";
+import { siteConfig } from "../config/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,109 +15,23 @@ const inter = Inter({
   variable: "--inter",
 });
 
-const webpageSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "Emir Öngörür | Computer engineer, technical writer & open-source contributor",
-  description:
-    "An experienced software developer passionate about learning and building open-source software. I love the Ethereum ecosystem, distributed systems, math, cryptography, compilers design, philosophy, finance, and economy.",
-  url: "https://www.emirongorur.com",
-  mainEntityOfPage: "https://www.emirongorur.com",
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Portfolio",
-      item: "https://www.emirongorur.com",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Blog",
-      item: "https://blog.emirongorur.com",
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Github",
-      item: "https://github.com/emirongrr",
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
-      name: "x",
-      item: "https://x.com/emirongorur",
-    },
-  ],
-};
-
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
-export const metadata: Metadata = {
-  title: "Emir Öngörür | Portfolio",
-  authors: [{ name: "Emir Öngörür" }],
-  creator: "Emir Öngörür",
-  publisher: "Emir Öngörür",
-  description:
-    "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
-  openGraph: {
-    title: "Emir Öngörür | Portfolio",
-    description:
-      "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
-    url: "https://www.emirongorur.com",
-    images: [
-      {
-        url: "https://www.emirongorur.com/api/og",
-        alt: "Emir Öngörür Portfolio",
-        width: 1200,
-        height: 630,
-      },
-    ],
-  },
-  generator: "Next.js",
-  referrer: "origin-when-cross-origin",
-  keywords: [
-    "emir öngörür",
-    "emir ongorur",
-    "code",
-    "javascript",
-    "react",
-    "next.js",
-    "web dev",
-    "python",
-    "rust",
-    "go",
-    "blockchain",
-    "ethereum",
-    "open-source",
-    "technical writer",
-    "blog",
-  ],
-  twitter: {
-    card: "summary_large_image",
-    title: "Emir Öngörür | Portfolio",
-    description:
-      "Discover Emir Öngörür's portfolio projects, skills, and experience in software development.",
-    images: ["https://www.emirongorur.com/api/og"],
-  },
-  metadataBase: new URL("https://www.emirongorur.com"),
-  alternates: {
-    canonical: "https://www.emirongorur.com",
-    languages: {
-      en: "/en",
-      tr: "/tr",
+
+export function generateMetadata({ params }: { params: { lng: string } }) {
+  return {
+    ...buildPageMetadata(params.lng, "home"),
+    metadataBase: new URL(siteConfig.url),
+    applicationName: `${siteConfig.name} Portfolio`,
+    generator: "Next.js",
+    referrer: "origin-when-cross-origin",
+    other: {
+      "apple-mobile-web-app-title": `${siteConfig.name} Portfolio`,
     },
-  },
-  other: {
-    "apple-mobile-web-app-title": "Emir Öngörür | Portfolio",
-  },
-};
+  };
+}
+
 export default async function RootLayout({
   children,
   params,
@@ -128,12 +43,13 @@ export default async function RootLayout({
 }) {
   let { lng } = params;
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
+  const siteJsonLd = buildSiteJsonLd(lng);
 
   return (
     <html id="home" className="dark" lang={lng} dir={dir(lng)}>
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.ico"></link>
+        <link rel="icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </head>
       <body
@@ -142,18 +58,15 @@ export default async function RootLayout({
         <Providers>
           <Navbar lng={lng} />
           <section>
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify(webpageSchema),
-              }}
-            />
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify(breadcrumbSchema),
-              }}
-            />
+            {siteJsonLd.map((schema, index) => (
+              <script
+                key={index}
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify(schema),
+                }}
+              />
+            ))}
             {children}
           </section>
           <Analytics />

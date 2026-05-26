@@ -3,5 +3,13 @@ import LandingSectionBase from "./LandingHeroBase";
 
 export const LandingSection = async ({ lng }: { lng: string }) => {
   const { i18n } = await useTranslation(lng, "landing");
-  return <LandingSectionBase i18n={i18n} lng={lng} />;
+  const t = i18n.getFixedT(lng, "landing");
+
+  return (
+    <LandingSectionBase
+      title={t("landingTitle")}
+      content={t("landingContent")}
+      logoAlt={t("landingLogoAlt")}
+    />
+  );
 };

@@ -1,33 +1,14 @@
 import Link from "next/link";
 import Theme from "./theme";
 import MobileMenu from "./mobilemenu";
-import { i18n } from "i18next";
 import LanguageSwitcher from "@components/LanguageSwitcher";
 import { languages } from "../../i18n/settings";
 import Logo from "../../../../public/assets/xi512.png";
 import Image from "next/image";
+import { getNavigationItems } from "../../config/navigation";
 
-const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
-  const t = i18n.getFixedT(lng, "common");
-  const data = [
-    {
-      title: t("home"),
-      href:`/${lng}`,
-    },
-    {
-      title: t("about"),
-      href: "/about",
-    },
-    {
-      title: t("projects"),
-      href: "/projects",
-    },
-    {
-      title: t("blog"),
-      href: `https://blog.emirongorur.com/${lng}`,
-      external: true,
-    },
-  ];
+const NavbarBase = ({ lng }: { lng: string }) => {
+  const data = getNavigationItems(lng);
   const uniqueLanguages = Array.from(new Set(languages));
 
   return (
@@ -72,7 +53,7 @@ const NavbarBase = ({ i18n, lng }: { i18n: i18n; lng: string }) => {
         <div className="flex items-center justify-end gap-x-4">
           <LanguageSwitcher languages={uniqueLanguages} currentLocale={lng} />
           <Theme />
-          <MobileMenu />
+          <MobileMenu lng={lng} />
         </div>
       </div>
     </header>

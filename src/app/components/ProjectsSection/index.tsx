@@ -3,5 +3,12 @@ import ProjectsSectionBase from "./ProjectsSectionBase";
 
 export const ProjectsSection = async ({ lng }: { lng: string }) => {
   const { i18n } = await useTranslation(lng, "projects");
-  return <ProjectsSectionBase i18n={i18n} lng={lng} />;
+  const t = i18n.getFixedT(lng, "projects");
+
+  return (
+    <ProjectsSectionBase
+      title={t("projectsTitle")}
+      content={t("projectsContent")}
+    />
+  );
 };
