@@ -66,40 +66,42 @@ export default function MobileMenu({ lng }: { lng: string }) {
             <HiOutlineX className="text-xl" />
           </button>
         </div>
-        <nav className="flex flex-col mt-6">
-          {data.map((link, id) => (
-            <li key={id}>
-              {link.external ? (
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Go to ${link.title}`}
-                  className="flex font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light items-center gap-x-2 group dark:hover:text-zinc-600 hover:text-zinc-900 p-6"
-                >
-                  <link.icon
-                    className="text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300"
-                    aria-hidden="true"
-                  />
-                  {link.title}
-                </a>
-              ) : (
-                <Link
-                  key={link.title}
-                  href={link.href}
-                  className="flex items-center gap-x-2 font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light p-6 group"
-                  onClick={onToggleNav}
-                  aria-label={`Go to ${link.title}`}
-                >
-                  <link.icon
-                    className="text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300"
-                    aria-hidden="true"
-                  />
-                  {link.title}
-                </Link>
-              )}
-            </li>
-          ))}
+        <nav className="mt-6" aria-label="Mobile navigation">
+          <ul className="flex flex-col">
+            {data.map((link, id) => (
+              <li key={id}>
+                {link.external ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Go to ${link.title}`}
+                    className="flex font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light items-center gap-x-2 group dark:hover:text-zinc-600 hover:text-zinc-900 p-6"
+                  >
+                    <link.icon
+                      className="text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300"
+                      aria-hidden="true"
+                    />
+                    {link.title}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.title}
+                    href={link.href}
+                    className="flex items-center gap-x-2 font-incognito font-semibold text-lg dark:shadow-line-dark shadow-line-light p-6 group"
+                    onClick={onToggleNav}
+                    aria-label={`Go to ${link.title}`}
+                  >
+                    <link.icon
+                      className="text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300"
+                      aria-hidden="true"
+                    />
+                    {link.title}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
     </>

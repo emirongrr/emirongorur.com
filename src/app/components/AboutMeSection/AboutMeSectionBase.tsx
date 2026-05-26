@@ -12,12 +12,19 @@ const AboutMeSectionBase = ({
   content,
   viewResume,
   technologiesSkills,
+  headingLevel,
 }: {
   title: string;
   content: string;
   viewResume: string;
   technologiesSkills: string;
+  headingLevel: "h1" | "h2";
 }) => {
+  const Heading = headingLevel;
+  const skillsHeadingLevel = headingLevel === "h1" ? "h2" : "h3";
+  const [mainContent, quoteContent] = content.split("\n\n> ");
+  const paragraphs = mainContent.split("\n\n");
+
   return (
     <section
       id="about"
@@ -27,10 +34,10 @@ const AboutMeSectionBase = ({
         >
         <main className="w-full mx-auto min-h-screen lg:max-w-7xl max-w-3xl overflow-hidden">
           <div className="min-h-[70%] mt-24">
-            <section className="flex flex-col lg:flex-row-reverse h-full">
+            <section className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(320px,2fr)] lg:items-start">
               {/* photo */}
-              <aside className="flex flex-col items-center lg:justify-self-center justify-self-start p-6 w-full lg:w-[40%]">
-                <div className="sticky top-10 p-4">
+              <aside className="flex flex-col items-center px-6 py-0 w-full lg:col-start-2 lg:pt-4">
+                <div className="lg:sticky lg:top-24 w-full max-w-[500px]">
                   <Image
                     className="rounded-2xl mb-4 object-cover  min-h-96 bg-top"
                     src={"/assets/80769968.png"}
@@ -79,18 +86,30 @@ const AboutMeSectionBase = ({
               </aside>
 
               {/* text */}
-              <div className="flex flex-col w-full lg:w-[60%] p-6">
-                <h2 className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight basis-1/4 p-6">
+              <div className="flex flex-col w-full px-6 py-0 lg:col-start-1 lg:row-start-1">
+                <Heading className="font-incognito font-semibold tracking-tight sm:text-5xl text-3xl lg:leading-tight basis-1/4">
                   {title}
-                </h2>
-                <p className="p-6 h-full">{content}</p>
+                </Heading>
+                <div className="flex flex-col gap-5 pt-12 pb-12 h-full">
+                  {paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                  {quoteContent ? (
+                    <blockquote className="border-l-4 border-zinc-600 pl-6 text-lg leading-relaxed text-zinc-100">
+                      “{quoteContent}”
+                    </blockquote>
+                  ) : null}
+                </div>
               </div>
             </section>
           </div>
 
           {/* skills */}
           <div className="w-full h-[30%] min-h-[300px]">
-            <SkillsSection title={technologiesSkills} />
+            <SkillsSection
+              title={technologiesSkills}
+              headingLevel={skillsHeadingLevel}
+            />
           </div>
         </main>
         </div>

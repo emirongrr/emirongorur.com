@@ -20,7 +20,7 @@ const LandingSectionBase = ({
   return (
     <main className="flex justify-center items-center w-full min-h-full md:h-[calc(100vh-89px)] overflow-hidden">
       <section className="flex w-full h-full flex-col">
-        <div className="h-full">
+        <div className="flex-1 min-h-0">
           <GradientBackground>
             <article className="flex flex-col items-center justify-center text-center w-full p-4 lg:p-8">
               {/* Title Section */}
@@ -28,9 +28,9 @@ const LandingSectionBase = ({
                 <h1 className="font-incognito font-semibold tracking-tight text-3xl sm:text-5xl leading-tight text-white lg:min-w-[700px]">
                   {title}
                 </h1>
-                <h2 className="text-base text-zinc-300 leading-relaxed mt-4">
+                <p className="text-base text-zinc-300 leading-relaxed mt-4">
                   {content}
-                </h2>
+                </p>
               </header>
 
               {/* Logo Section */}
@@ -43,9 +43,7 @@ const LandingSectionBase = ({
             </article>
           </GradientBackground>
         </div>
-        <div className="bg-white w-full overflow-hidden mt-auto dark:bg-[#000] h-[calc(100vh-calc(100vh-79px))]">
-          {/* Additional space or other content */}
-        </div>
+        <div className="bg-white w-full shrink-0 dark:bg-[#000] h-[89px]" />
       </section>
     </main>
   );

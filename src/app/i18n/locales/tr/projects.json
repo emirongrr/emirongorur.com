@@ -1,4 +1,6 @@
 {
-  "projectsTitle": "Projeler & Açık kaynak katkıları",
-  "projectsContent": "Yıllar boyunca birçok projeyle ilgilendim, ancak bunlar gerçekten öne çıkanlar. Rust konusundaki yeteneklerimi, açık kaynak katkılarına olan bağlılığımı ve Ethereum ekosistemine duyduğum derin ilgiyi yansıtıyorlar. Ethereum geliştirmeye tutku duyuyorsanız, özellikle geliştirme fikirlerinizi paylaşmanız beni çok mutlu eder."
+  "projectsTitle": "Projeler & Açık Kaynak Katkıları",
+  "projectsContent": "Bu projeler ve katkılar, çalışmalarımın yönünü en iyi yansıtan işler: pratik sistemler, açık kaynak iş birliği, Rust ve Ethereum ekosistemine duyduğum yoğun ilgi. Kullanışlı, anlaşılabilir ve dayanıklı yazılımlar inşa etmeye önem veriyorum; bu merakı paylaşan insanların fikirlerine her zaman açığım.",
+  "portfolioDescription": "Projelerimi, araştırma ilgi alanlarımı, deneyimimi ve yazılarımı tek yerde sunmak için geliştirdiğim kişisel web sitem.",
+  "ethrexDescription": "LambdaClass'ın Rust ile geliştirilen Ethereum execution clienti."
 }

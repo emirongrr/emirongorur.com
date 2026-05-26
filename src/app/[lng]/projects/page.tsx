@@ -24,7 +24,7 @@ export default function Projects({
           __html: JSON.stringify(breadcrumbJsonLd),
         }}
       />
-      <ProjectsSection lng={lng} />
+      <ProjectsSection lng={lng} headingLevel="h1" />
     </section>
   );
 }

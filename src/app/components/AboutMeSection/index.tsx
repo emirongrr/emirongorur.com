@@ -1,7 +1,13 @@
 import { useTranslation } from "../../i18n";
 import AboutMeSectionBase from "./AboutMeSectionBase";
 
-export const AboutMeSection = async ({ lng }: { lng: string }) => {
+export const AboutMeSection = async ({
+  lng,
+  headingLevel = "h2",
+}: {
+  lng: string;
+  headingLevel?: "h1" | "h2";
+}) => {
   const { i18n } = await useTranslation(lng, "about");
   const t = i18n.getFixedT(lng, "about");
 
@@ -11,6 +17,7 @@ export const AboutMeSection = async ({ lng }: { lng: string }) => {
       content={t("aboutContent")}
       viewResume={t("viewResume")}
       technologiesSkills={t("technologiesSkills")}
+      headingLevel={headingLevel}
     />
   );
 };

@@ -24,7 +24,7 @@ export default function About({
           __html: JSON.stringify(breadcrumbJsonLd),
         }}
       />
-      <AboutMeSection lng={lng} />
+      <AboutMeSection lng={lng} headingLevel="h1" />
     </section>
   );
 }
