@@ -25,7 +25,7 @@ export const formatDate = (
   const locale = lng === "tr" ? tr : enUS;
 
   const formattedDate = format(
-    formatInTimeZone(date, "Europe/Paris", "yyyy-MM-dd HH:mm:ss zzz"),
+    new Date(formatInTimeZone(date, "Europe/Paris", "yyyy-MM-dd HH:mm:ss zzz")),
     type,
     { locale },
   );
