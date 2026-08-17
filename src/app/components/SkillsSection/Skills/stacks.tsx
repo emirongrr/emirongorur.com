@@ -16,6 +16,7 @@ import {
   SiSolidity,
   SiTypescript,
 } from "react-icons/si";
+import type { JSX } from "react";
 
 export type stacksProps = {
   [key: string]: JSX.Element;
@@ -34,9 +35,7 @@ export const STACKS: stacksProps = {
   "Zero-Knowledge Proofs": (
     <BiShieldQuarter size={iconSize} className="text-purple-400" />
   ),
-  "Formal Verification": (
-    <BiCodeAlt size={iconSize} className="text-sky-400" />
-  ),
+  "Formal Verification": <BiCodeAlt size={iconSize} className="text-sky-400" />,
   "Distributed Systems": (
     <BiNetworkChart size={iconSize} className="text-cyan-300" />
   ),
@@ -57,9 +56,7 @@ export const STACKS: stacksProps = {
   "Open Source": <BiGitBranch size={iconSize} className="text-zinc-300" />,
   Solidity: <SiSolidity size={iconSize} className="text-gray-400" />,
   EVM: <SiEthereum size={iconSize} className="text-indigo-300" />,
-  "Smart Contracts": (
-    <SiSolidity size={iconSize} className="text-zinc-400" />
-  ),
+  "Smart Contracts": <SiSolidity size={iconSize} className="text-zinc-400" />,
   TypeScript: <SiTypescript size={iconSize} className="text-blue-400" />,
   "React.js": <SiReact size={iconSize} className="text-sky-500" />,
   Docker: <SiDocker size={iconSize} className="text-blue-400" />,
