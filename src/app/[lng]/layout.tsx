@@ -15,9 +15,9 @@ const inter = Inter({
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     lng: string;
-  };
+  }>;
 }
 const webpageSchema = {
   "@context": "https://schema.org",
@@ -128,7 +128,7 @@ export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  let { lng } = params;
+  let { lng } = await params;
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
 
   return (

@@ -21,20 +21,20 @@ import { fallbackLng } from "../../i18n/settings";
 import { useTranslation } from "../../i18n";
 
 type Props = {
-  params: {
+  params: Promise<{
     post: string;
     lng: string;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.post;
-  const lng = params.lng || fallbackLng;
+  const { post: slug, lng: requestedLng } = await params;
+  const lng = requestedLng || fallbackLng;
 
   const post: PostType = await sanityFetch({
     query: singlePostQuery,
     tags: ["Post"],
-    qParams: { slug, lang: params.lng },
+    qParams: { slug, lang: requestedLng },
   });
 
   if (!post) {
@@ -80,8 +80,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Post({ params }: Props) {
-  const slug = params.post;
-  const lng = params.lng || fallbackLng;
+  const { post: slug, lng: requestedLng } = await params;
+  const lng = requestedLng || fallbackLng;
 
   const post: PostType = await sanityFetch({
     query: singlePostQuery,
@@ -231,7 +231,7 @@ export default async function Post({ params }: Props) {
               <h3 className="text-xl font-semibold tracking-tight mb-4">
                 {t("Featured")}
               </h3>
-              <FeaturedPosts lng={lng} params={params.post} />
+              <FeaturedPosts lng={lng} params={slug} />
             </section>
           </aside>
         </Slide>
