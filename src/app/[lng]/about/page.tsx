@@ -2,18 +2,24 @@ import { AboutMeSection } from "@components/AboutMeSection";
 import { languages, fallbackLng } from "../../i18n/settings";
 import { buildBreadcrumbJsonLd, buildPageMetadata } from "../../lib/seo";
 
-export function generateMetadata({ params }: { params: { lng: string } }) {
-  return buildPageMetadata(params.lng, "about");
-}
-
-export default function About({
+export async function generateMetadata({
   params,
 }: {
-  params: {
-    lng: string;
-  };
+  params: Promise<{ lng: string }>;
 }) {
-  const lng = languages.includes(params.lng) ? params.lng : fallbackLng;
+  const { lng } = await params;
+  return buildPageMetadata(lng, "about");
+}
+
+export default async function About({
+  params,
+}: {
+  params: Promise<{
+    lng: string;
+  }>;
+}) {
+  const { lng: requestedLng } = await params;
+  const lng = languages.includes(requestedLng) ? requestedLng : fallbackLng;
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(lng, "about");
 
   return (

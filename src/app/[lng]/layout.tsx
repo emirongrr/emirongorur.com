@@ -19,9 +19,14 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 
-export function generateMetadata({ params }: { params: { lng: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lng: string }>;
+}) {
+  const { lng } = await params;
   return {
-    ...buildPageMetadata(params.lng, "home"),
+    ...buildPageMetadata(lng, "home"),
     metadataBase: new URL(siteConfig.url),
     applicationName: `${siteConfig.name} Portfolio`,
     generator: "Next.js",
@@ -37,11 +42,11 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: {
+  params: Promise<{
     lng: string;
-  };
+  }>;
 }) {
-  let { lng } = params;
+  let { lng } = await params;
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const siteJsonLd = buildSiteJsonLd(lng);
 

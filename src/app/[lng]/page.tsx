@@ -4,18 +4,24 @@ import { ProjectsSection } from "@components/ProjectsSection";
 import { languages, fallbackLng } from "../i18n/settings";
 import { buildBreadcrumbJsonLd, buildPageMetadata } from "../lib/seo";
 
-export function generateMetadata({ params }: { params: { lng: string } }) {
-  return buildPageMetadata(params.lng, "home");
-}
-
-export default function Home({
+export async function generateMetadata({
   params,
 }: {
-  params: {
-    lng: string;
-  };
+  params: Promise<{ lng: string }>;
 }) {
-  const lng = languages.includes(params.lng) ? params.lng : fallbackLng;
+  const { lng } = await params;
+  return buildPageMetadata(lng, "home");
+}
+
+export default async function Home({
+  params,
+}: {
+  params: Promise<{
+    lng: string;
+  }>;
+}) {
+  const { lng: requestedLng } = await params;
+  const lng = languages.includes(requestedLng) ? requestedLng : fallbackLng;
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(lng, "home");
 
   return (
